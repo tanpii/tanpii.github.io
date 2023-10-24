@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url(buttons.css);
+@import url(footer.css);
+@import url(pract7.css);
+@import url(header.css);
+@import url(loginform.css);
+
+:root {
+    --main-color: #262877;
+    --second-color: #00569a;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: calc(20px + 1.6vw);
+    color: var(--main-color);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    header {
+        justify-content: space-between;
+    }
+    #title br {
+        display: none;
+    }
+    .header_burger {
+        display: block;
+    }
+    .header_burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 10px;
+    }
+    .header_burger span {
+        position: absolute;
+        background-color: var(--main-color);
+        width: 100%;
+        height: 2px;
+        left: 0;
+        top: 4px;
+    }
+    .header_burger:before,
+    .header_burger:after {
+        content: '';
+        position: absolute;
+        background-color: var(--main-color);
+        width: 100%;
+        height: 2px;
+        left: 0;
+    }
+    .header_burger:before {
+        top: 0;
+    }
+    .header_burger:after {
+        bottom: 0;
+    }
+    .menu {
+        display: none;
+    }
+    .description_of_cookies .cookie_features,
+    .description_of_cookies .company_description {
+        flex-flow: column;
+    }
+}
+
+.notification-button {
+    z-index: 100;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.notification-icon {
+    z-index: 100;
+    background-color: var(--main-color);
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.notification-list {
+    padding: 10px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+    background-color: #fff;
+    border: 5px solid var(--main-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
+    width: 200px;
+}
+
+.notification-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notification-list li {
+    padding: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.notification-list li:first-child {
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 10px;
+    font-weight: 900;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.notification-list li:first-child:hover {
+    background-color: var(--main-color);
+}
+
+.notification-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.notification-button:hover .notification-list {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+}
+
+.notification-icon:hover {
+    transition: transform 0.3s;
+    transform: scale(1.1);
+}
+
+#arrow {
+    z-index: 100;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+#arrow:hover {
+    transition: transform 0.3s;
+    transform: scale(1.1);
+}
+
+.image-container {
+    position: relative; /*делает его контекстом позиционирования для дочерних элементов, 
+    что означает, что вы можете использовать относительное или абсолютное позиционирование 
+    для элементов внутри .image-container относительно самого контейнера.*/
+}
+
+.image-container img {
+    width: 100%; /* Обеспечиваем максимальную ширину изображения в контейнере */
+    opacity: 90%;
+}
+
+.text-overlay {
+    position: absolute;
+    width: 100%;
+    top: 50%; /* Позиционируем текст по вертикали по центру контейнера */
+    left: 50%; /* Позиционируем текст по горизонтали по центру контейнера */
+    transform: translate(-50%, -50%); /* Корректируем положение текста */
+    padding: 10px; /* Отступы вокруг текста */
+    color: white; /* Цвет текста */
+    font-size: calc(20px + 1.9vw); /* Размер шрифта */
+    font-weight: 900;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.cookie_header {
+    margin-top: 70px;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--second-color);
+}
+
+.cookie_header * {
+    margin: calc(1px + 0.3vw) calc(5px + 0.5vw);
+}
+
+.cookie_header img {
+    width: calc(25px + 6vw);
+    height: calc(25px + 6vw);
+}
+
+.cookie_header span {
+    font-size: calc(25px + 7vw); /* Размер шрифта */
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+}
+
+.little_description {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.text_block {
+    margin: 30px;
+    flex: 1;
+}
+
+.text_block p {
+    font-size: calc(16px + 0.5vw);
+    text-align:justify;
+    margin: 20px;
+}
+
+.image {
+    transition: transform 0.3s;
+    margin: 20px;
+}
+
+.image:hover{
+    transition: transform 0.3s;
+    transform: scale(1.02);
+}
+
+.image img {
+    width: calc(300px + 20vw);
+}
+
+.shop {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+
+.cookie_type {
+    position: relative;
+    width: 300px;
+    height: 400px;
+}
+
+.cookie_type img {
+    width: calc(150px + 10vw);
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.cookie_type_text .name {
+    font-size: calc(10px + 0.4vw);
+    position: absolute;
+    text-align: left;
+    top: 0;
+    padding-left: 30px;
+}
+
+.cookie_type_text .info {
+    font-size: calc(8px + 0.4vw);
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    padding: 0px 30px;
+}
+
+.cookie_type_text {
+    z-index: 1;
+    position: absolute;
+    background-color: var(--main-color);
+    color: white;
+    width: calc(140px + 7vw);
+    height: calc(160px + 7vw);
+    top: 50%;
+    left: 50%;
+    transform: translate(-72%, -80%);
+    transition: transform 1s ease-in-out;
+}
+
+.cookie_type img:hover + .cookie_type_text {
+    transform: translate(-50%, -30%) scale(1.3);
+    transition: transform 1s ease-in-out;
+}
+
+.cookie_type button {
+    position: absolute;
+    left: 25%;
+    bottom: 20px;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 10px;
+    background-color: var(--main-color);
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(12px + 0.2vw);
+    font-weight: 900;
+    color: white;
+}
+
+.description_of_cookies {
+    margin: 20px 0px;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+#what_special {
+    text-align: right;
+    margin-right: 40px;
+}
+
+.description_of_cookies .about_us h1 {
+    text-align: left;
+    margin-left: 40px;
+}
+
+.about_us p {
+    font-size: calc(10px + 0.2vw);
+    text-align: justify;
+}
+
+.about_us {
+    margin: 30px;
+    display: flex;
+    flex-flow: column;
+    justify-content:start;
+    align-items: start;
+    flex: 1;
+}
+
+.cookie_features {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+}
+
+.company_description {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+}
+
+.company_description img {
+    width: calc(200px + 6.5vw);
+}
+
+.description_of_cookies aside {
+    flex: 0 0 15%;
+    margin: 10px;
+    padding: 10px 20px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, var(--second-color) ,var(--main-color));
+}
+
+.description_of_cookies aside img {
+    width: calc(100px + 6.5vw);
+}
+
+aside h3 {
+    font-size: calc(12px + 0.1vw);
+    color: white;
+    font-weight: 900;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.description_of_cookies aside p {
+    color: white;
+    font-size: calc(8px + 0.2vw);
+    text-align: justify;
+}
+
+.news-headline {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 970px) {
+    .description_of_cookies {
+        flex-flow: column;
+    }
+    .description_of_cookies aside {
+        flex-flow: row;
+        align-items: start;
+    }
+    .description_of_cookies aside p {
+        width: 25%;
+    }
+    .description_of_cookies aside * {
+        padding: 5px;
+    }
+}
+
+#showWorkFormButton {
+    padding: 5px;
+    background-color: white;
+    color: var(--main-color);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#workForm {
+    width: 700px;
+}
+
+#workForm select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent; /* Сделать фон прозрачным */
+    padding: 10px; /* Задать отступы */
+    border: 1px solid white; /* Добавить грани */
+    border-radius: 10px; /* Скруглить углы */
+    outline: none; /* Убрать контур при фокусе */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+#workForm option:hover {
+    font-weight: 500;
+}
+
+#workForm textarea {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: var(--main-color);
+    resize: none;
+}
+
+.horizontal-group .left{
+    float: left;
+    width: 49%;
+}
+  
+.horizontal-group .right{
+    float: right;
+    width: 49%;
+}
+
+.horizontal-group {
+    display: flex;
+    padding: 10px;
+}
+
+.form-group{
+    margin-bottom: 20px;
+}
+
+#agree {
+    align-self: center;
+}
+
+#workForm textarea::placeholder {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: grey;
+}
+
+#closeWorkFormButton {
+    display: inline;
+}
+
+.popup fieldset {
+    border-color: white;
+    color: white;
+}
+
+#workForm #agree {
+    width: fit-content;
+    margin-left: 10px;
+}
+
+.pinterest h1{
+    width: 100%;
+    text-align: center;
+}
+
+.pinterest p {
+    opacity: 70%;
+    width: 100%;
+    text-align: center;
+    font-size: calc(5px + 2vw);
+}
+
+.pinterest {
+    padding: 20px;
+    background-color: #ebe2dc;
+}
+
+.board {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+.photo {
+    transition: transform 0.2s;
+    width: 20vw;
+    height: 20vw;
+    display: block;
+    min-width: 150px;
+    min-height: 150px;
+    margin: 5px;
+}
+
+.photo:hover{
+    transition: transform 0.5s;
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .board {
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        width: 100%;
+        justify-content: center;
+        padding-right: 5px;
+    }
+    .photo {
+        max-width: 300px;
+        margin: 3px;
+    }
+}
+
+@media (max-width: 320px) {
+    .board {
+        position: relative;
+        padding: 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        width: 100%;
+        justify-content: center;
+        padding-right: 5px;
+    }
+    .photo {
+        width: 5vw;
+        display: block;
+        flex: 25%;
+        max-width: 200px;
+        margin: 3px;
+    }
+}

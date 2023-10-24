@@ -1,0 +1,147 @@
+.popup {
+  z-index: 100;
+  width: 350px;
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 86, 154, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup h1 {
+  font-size: 30px;
+  color: white;
+}
+
+.popup img{
+  display: inline;
+  margin-bottom: 20px;
+}
+
+.popup label {
+  display: flex;
+  color: white;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup input {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: transparent; 
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.popup input:focus {
+  background-color: transparent; 
+  outline: none;
+  border: 3px solid white;
+}
+
+.popup input::placeholder {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.popup button {
+  width: 150px;
+  background-color: white;
+  color: var(--main-color);
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.floating-squares {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-squares .square:nth-child(1),
+.floating-squares .square:nth-child(2),
+.floating-squares .square:nth-child(3),
+.floating-squares .square:nth-child(4),
+.floating-squares .square:nth-child(5) {
+  content: "";
+  position: absolute;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); 
+  border-radius: 50%;
+  animation: float 4s linear infinite;
+}
+
+.floating-squares .square:nth-child(1) {
+  width: 50px;
+  height: 50px;
+  top: -25px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.floating-squares .square:nth-child(2) {
+  z-index: 50px;
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  right: -50px;
+  animation-delay: 1.5s;
+}
+
+.floating-squares .square:nth-child(3) {
+  width: 70px;
+  height: 70px;
+  top: -25px;
+  left: 20px;
+  animation-delay: 0.5s;
+}
+
+.floating-squares .square:nth-child(4) {
+  width: 50px;
+  height: 50px;
+  bottom: 40px;
+  right: 5px;
+  animation-delay: 0.5s;
+}
+
+.floating-squares .square:nth-child(5) {
+  width: 80px;
+  height: 80px;
+  bottom: -25px;
+  left: -25px;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0% {
+      transform: translate(0, 0);
+  }
+  50% {
+      transform: translate(15px, 15px);
+  }
+  100% {
+      transform: translate(0, 0);
+  }
+}

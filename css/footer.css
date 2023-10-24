@@ -1,0 +1,78 @@
+footer {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: var(--main-color);
+}
+
+footer h3 {
+  font-size: calc(12px + 0.2vw);
+  color: white;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+footer address {
+  display: flex;
+  padding: 0px 0px 20px;
+  width: calc(300px + 10vw);
+  justify-content: space-between;
+}
+
+footer .social-button {
+  position: relative;
+  width: calc(30px + 1vw);
+  height: calc(30px + 1vw);
+}
+
+footer img {
+  z-index: 1;
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer button {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #151961;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+footer button::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+#ig::before {
+  background: linear-gradient(to bottom, #b60082, #6f0062);
+}
+#yt::before {
+  background: linear-gradient(to bottom, #d60019, #b60b19);
+}
+#tg::before {
+  background: linear-gradient(to bottom, #00aeb4, #007890);
+}
+#tel::before {
+  background: linear-gradient(to bottom, #0dc350, #189a37);
+}
+
+footer .social-button:hover button::before {
+  top: 0;
+}

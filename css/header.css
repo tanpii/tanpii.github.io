@@ -1,0 +1,114 @@
+header {
+  z-index: 100;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 0;
+  width: 100%;
+  height: 60px;
+  padding: 0px 10px;
+  font-size: 1vw;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.center_menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  font-size: calc(16px + 0.4vw);
+  color: var(--main-color);
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.logo img {
+  width: 3.5vw;
+  height: 3.5vw;
+}
+
+.logo {
+  margin-right: 30px;
+}
+
+#cart img {
+  width: 2.2vw;
+  height: 2.2vw;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.mobile_menu ul {
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+  list-style: none;
+}
+
+.menu li,
+.mobile_menu li {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.menu a,
+.mobile_menu a {
+  font-size: calc(12px + 0.2vw);
+  color: black;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  padding: calc(1px + 0.4vw) calc(1px + 0.5vw);
+}
+.mobile_menu a {
+  text-align: right;
+}
+
+#showLoginFormButton {
+  border: none;
+  outline: none;
+}
+
+header a:hover,
+.mobile_menu a:hover {
+  text-decoration: underline;
+}
+
+.mobile_menu {
+  display: none;
+  z-index: 1;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.7);
+  top: 60px;
+  right: 0;
+  width: fit-content;
+  border-radius: 0px 0px 10px 10px;
+}
+
+.header_burger {
+  display: none;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
+}

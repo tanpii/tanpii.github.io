@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.querySelector(".mobile_menu");
 
   burgerButton.addEventListener("click", function() {
+      console.log("click");
       mobileMenu.classList.toggle("active");
       if (mobileMenu.classList.contains("active")) {
         mobileMenu.style.display = "block";

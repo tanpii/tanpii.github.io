@@ -58,16 +58,6 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenu.style.display = "none";
       burgerButton.style.transform = "rotate(0deg)";
     }
-  burgerButton.addEventListener("click", function() {
-      console.log("click");
-      mobileMenu.classList.toggle("active");
-      if (mobileMenu.classList.contains("active")) {
-        mobileMenu.style.display = "block";
-        burgerButton.style.transform = "rotate(90deg)";
-      } else {
-        mobileMenu.style.display = "none";
-        burgerButton.style.transform = "rotate(0deg)";
-      }
   });
 
   const products = document.querySelector(".products");
@@ -116,26 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
       --move-y: ${(e.clientY) * .0009}vw;
       `
     })
-  })  
+  }); 
 
-  //pract 9
-  const likeButtons = document.querySelectorAll(".like-button");
-
-  likeButtons.forEach(likeButton => {
-    likeButton.addEventListener('click', function(event) {
-      console.log("click");
-      const heart = event.target.querySelector(".heart");
-
-      if (heart.classList.contains("fa-regular")) {
-        heart.classList.remove("fa-regular");
-        heart.classList.add("fa-solid");
-      } else {
-        heart.classList.remove("fa-solid");
-        heart.classList.add("fa-regular");
-      }
-    });
-  });
-
-});
   setInterval(changeImage, 2000);
 });

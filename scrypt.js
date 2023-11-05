@@ -58,6 +58,16 @@ document.addEventListener("DOMContentLoaded", function () {
       mobileMenu.style.display = "none";
       burgerButton.style.transform = "rotate(0deg)";
     }
+  burgerButton.addEventListener("click", function() {
+      console.log("click");
+      mobileMenu.classList.toggle("active");
+      if (mobileMenu.classList.contains("active")) {
+        mobileMenu.style.display = "block";
+        burgerButton.style.transform = "rotate(90deg)";
+      } else {
+        mobileMenu.style.display = "none";
+        burgerButton.style.transform = "rotate(0deg)";
+      }
   });
 
   const products = document.querySelector(".products");
@@ -97,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }, 300);
       }, 300);
   }
-
   changeImage();
 
   document.addEventListener('mousemove', e => {
@@ -127,4 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+});
+  setInterval(changeImage, 2000);
 });

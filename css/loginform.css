@@ -1,6 +1,6 @@
 .popup {
   z-index: 100;
-  width: 350px;
+  width: calc(300px + 10vw);
   display: none;
   position: fixed;
   top: 50%;
@@ -17,59 +17,75 @@
   align-items: center;
 }
 
-.popup h1 {
+.registration-form {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.registration-form h1 {
+  grid-column: span 2;
+  margin: 5px;
   font-size: 30px;
   color: white;
 }
 
-.popup img{
-  display: inline;
-  margin-bottom: 20px;
-}
-
-.popup label {
-  display: flex;
-  color: white;
-  font-weight: 500;
-  align-items: center;
-  justify-content: center;
-}
-
-.popup input {
-  width: 80%;
+.registration-form input {
+  width: 100%;
   padding: 10px;
-  margin-bottom: 10px;
   font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
   color: white;
   background-color: transparent; 
   border: 1px solid white;
   border-radius: 10px;
 }
 
-.popup input:focus {
+.registration-form input:focus {
   background-color: transparent; 
   outline: none;
   border: 3px solid white;
 }
 
-.popup input::placeholder {
+.registration-form input::placeholder {
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
-.popup button {
-  width: 150px;
+.registration-form button {
+  grid-column: span 2;
+}
+
+#registration-button {
   background-color: white;
   color: var(--main-color);
   border: none;
   padding: 10px 20px;
-  margin: 10px;
   border-radius: 10px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 900;
   cursor: pointer;
+}
+
+#login-button, 
+#closeLoginFormButton {
+  background-color: transparent;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .registration-form input {
+    grid-column: span 2;
+  }
 }
 
 .floating-squares {

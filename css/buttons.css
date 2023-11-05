@@ -43,7 +43,7 @@
 
 .horror-button:hover {
   transform: scaleX(1.1) rotate(-2deg);
-  background-color: #b92525;
+  background-color: #48372c;
   transition: all 1s;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .horror-button:before {
-  content: "👻";
+  content: "☕";
   position: absolute;
   left: -20%;
   transition: all 650ms;
@@ -64,7 +64,7 @@
 }
 
 .horror-button:after {
-  content: "👻";
+  content: "☕";
   position: absolute;
   right: -20%;
   transition: all 650ms;

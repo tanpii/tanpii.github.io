@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MonsterCrunch</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script src="scrypt.js" defer></script>
+    </head>
+    <body>
+        <div class="interactive-header">
+            <div class="word">
+                <div class="letter">M</div>
+                <div class="letter">O</div>
+                <div class="letter">N</div>
+                <div class="letter">S</div>
+                <div class="letter">T</div>
+                <div class="letter">E</div>
+                <div class="letter">R</div>
+            </div>
+            <div class="word">
+                <div class="letter">C</div>
+                <div class="letter">R</div>
+                <div class="letter">U</div>
+                <div class="letter">N</div>
+                <div class="letter">C</div>
+                <div class="letter">H</div>
+            </div>
+        </div>
+        <header>
+            <div class="center-menu">
+                <h1 id="title">MONSTER<br> CRUNCH</h1>
+                <div class="logo">
+                    <img src="images/cookie_monster.png"/>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Наше печенье</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                        <li><a class="cart" href="#profile"><img src="images/icons/basket.png" ></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile">
+                <div class="header-burger"><span></span></div>
+                <a class="mobile-cart" href="#profile"><img src="images/icons/basket.png"></a>
+            </div>
+        </header>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Наше печенье</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <div id="loginForm" class="popup">
+            <div class="floating-squares">
+                <div class="square"><img src="images/cookie1.png"></div>
+                <div class="square"><img src="images/cookie2.png"></div>
+                <div class="square"><img src="images/cookie3.png"></div>
+                <div class="square"><img src="images/cookie1.png"></div>
+                <div class="square"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="registration-form">
+                <h1>РЕГИСТРАЦИЯ</h1>
+                <input type="text" placeholder="Имя🙋🏻‍♂️" id="name" name="name" required autofocus>
+                <input type="number" placeholder="Телефон🤳" id="number" name="number" required>
+                <input type="email" placeholder="Почта💌" id="email" name="email" required>
+                <input type="password" placeholder="Пароль🤫" id="password" name="password" required>
+                <button id="registration-button" type="submit">РЕГИСТРАЦИЯ</button>
+                <button id="login-button" type="submit">Уже есть аккаунт</button>
+            </form>
+            <button id="closeLoginFormButton">Закрыть</button>
+        </div>
+        <main>
+            <section class="little-description">
+                <div class="text">
+                    <h1 id="up">Если ты любишь cookies так же, как и cookie monster...</h1>
+                    <p>...то купить идеальное печенье по секретному рецепту ты можешь в MonsterCrunch! Хотите испытать настоящий взрыв вкусов в каждом укусе? Тогда добро пожаловать в наш магазин печенья, где хрустящее печенье становится настоящим искусством!</p>
+                </div>
+                <div class="image">
+                    <img src="images/cookie_monster_eat.png"/>
+                </div>
+            </section>
+            <article class="new-products">
+                <div class="description">
+                    <h2>СЕЗОННОЕ ПРЕДЛОЖЕНИЕ</h2>
+                    <p>В этот раз наши пекари постарались и придумали рецепт по-особому хрустящего печенья. Эти печеньки в виде милых кошечек и собачек точно поднимут вам настроение! Они станут прекрасным компаньоном к вашему стакану теплого молока. Разделите их с близкими и пусть радость наполняет ваш дом!</p>
+                    <button href="catalog.html" class="horror-button">К КАТАЛОГУ</button>
+                </div>
+                <div class="products">
+                    <img class="product product__1" src="/images/cat_cookie.png">
+                    <img class="product product__2" src="/images/dog_cookie.png">
+                    <img class="product product__3" src="/images/cat_cookie_2.png">
+                    <img class="product product__4" src="/images/dog_cookie1.png">
+                </div>
+                <div class="product_names">
+                    <div class="product-name product-name__1"><span></span></div>
+                    <div class="product-name product-name__2"><span></span></div>
+                    <div class="product-name product-name__3"><span></span></div>
+                    <div class="product-name product-name__4"><span></span></div>
+                </div>
+            </article>
+            <section class="cookie-line">
+                <span>C</span>
+                <img class="cookie cookie__1" src="images/cookie1.png">
+                <img class="cookie cookie__2" src="images/cookie1.png">
+                <img class="cookie cookie__3" src="images/cookie1.png">
+                <img class="cookie cookie__4" src="images/cookie1.png">
+                <span>KIES</span>
+            </section>
+            <article class="about-us">
+                <!--<section class="our-team">
+                    <h2>НАША КОМАНДА</h2>
+                    <div class="team-image team-image__leader"><img src="images/leader.JPG"></div>
+                    <div class="team-image team-image__team1"><img src="images/team1.png"></div>
+                    <div class="team-image team-image__baker3"><img src="images/baker3.JPG"></div>
+                </section>-->
+                <!--<section class="grid-container">
+                    <div class="grid-item grid-item__image1">
+                      <img src="/images/baker.JPG">
+                    </div>
+                    <div class="grid-item grid-item__about">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloremque libero sequi consequatur aliquam, illum, placeat, earum molestiae quis non porro maxime tempora id? Eos veniam placeat ex asperiores doloribus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, velit assumenda, amet consequatur iste voluptas iusto voluptatem quo animi nostrum distinctio voluptatum doloribus alias quasi illo provident obcaecati optio. Tenetur.</p>
+                    </div>
+                    <div class="grid-item grid-item__image2">
+                      <img src="/images/cookie_monster_first.jpg">
+                    </div>
+                    <div class="grid-item grid-item__cookie">
+                        <img src="/images/cookie1.png">
+                        <span>CHOCO BOOM</span>
+                        <p>Вкусное хрустящее печенье с шоколадной крошкой и нежной начинкой внутри.</p>
+                        <button class="horror-button">КУПИТЬ</button>
+                    </div>
+                    <div class="grid-item grid-item__catalog">
+                      <img src="/images/pinterest/photo6.JPG">
+                      <p>Начни и закончи свой день с чашки ароматного чая и нежного печенья от Monster Crunch. Позволь себе этот нежный праздник, который начинается с первого укуса и заканчивается улыбкой на твоем лице.</p>
+                    </div>
+                    <div class="grid-item grid-item__buyline"></div>
+                </section>-->
+            </article>
+        </main>
+        <a href="#up">
+            <img id="arrow" src="images/up-arrow-button.png"/>
+        </a>
+        <div class="for_footer">
+            <footer>
+                <div class="footer_container">
+                    <div class="sec aboutus">
+                        <h2>О нас</h2>
+                        <p>Lorem, ipsum dolor 
+                            sit amet consectetur 
+                            adipisicing elit. Corporis 
+                            quibusdam dolorum dolore quo necessitatibus nobis. 
+                            Quae qui sed itaque, veritatis facilis labore adipisci 
+                            alias ipsum libero quis 
+                            hic aliquid reiciendis?
+                        </p>
+                        <ul class="sci">
+                            <li><a id="yt" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a id="tg" href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                            <li><a id="tel" href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="sec quicklinks">
+                        <h2>Полезные ссылки</h2>
+                        <ul>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="sec contact">
+                        <h2>Свяжитесь с нами</h2>
+                        <ul class="info">
+                            <li>
+                                <span><i class="fa-solid fa-map"></i></i></i></span>
+                                <span>
+                                    Мичуринский пр-т 12, к2<br>
+                                    Москва,<br>
+                                    Россия
+                                </span>
+                            </li>
+                            <li>
+                                <span><i class="fa-solid fa-phone"></i></i></i></span>
+                                <p><a href="tel:+79624217078">+7(951)194-01-52</a></p>
+                            </li>
+                            <li>
+                                <span><i class="fa-solid fa-envelope"></i></i></i></span>
+                                <p><a href="mailto:monstercrunch@mail.ru">monstercrunch@mail.ru</a></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+            <div class="copyrightingText">
+                <p>Copyright © 2022. All Right Reserved.</p>
+            </div>
+        </div>
+    </body>
+</html>

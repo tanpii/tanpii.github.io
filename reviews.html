@@ -6,134 +6,183 @@
         <title>MonsterCrunch</title>
         <link rel="icon" type="image/png" href="images/cookie_monster.png">
         <link rel="stylesheet" href="/style.css">
+        <script src="libs/gsap/gsap.min.js" defer></script>
+        <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+        <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
         <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script src="/smotherscroll.js" type="text/javascript" defer></script>
         <script src="/scrypt.js" type="text/javascript" defer></script>
     </head>
     <body>
         <header>
-            <div class="center-menu">
-                <h1 id="title">MONSTER<br> CRUNCH</h1>
-                <div class="logo">
-                    <img src="images/cookie_monster.png"/>
-                </div>
-                <nav class="menu">
+                    <div class="center-menu">
+                        <h1 id="title">MONSTER<br> CRUNCH</h1>
+                        <div class="logo">
+                            <img src="images/cookie_monster.png"/>
+                        </div>
+                        <nav class="menu">
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="catalog.html">Наше печенье</a></li>
+                                <li><a href="reviews.html">О нас</a></li>
+                                <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                                <li><a class="cart" href="#profile"><img src="images/icons/basket.png" ></a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="mobile">
+                        <div class="header-burger"><span></span></div>
+                        <a class="mobile-cart" href="#profile"><img src="images/icons/basket.png"></a>
+                    </div>
+                </header>
+                <nav class="mobile-menu">
                     <ul>
                         <li><a href="index.html">Главная</a></li>
                         <li><a href="catalog.html">Наше печенье</a></li>
                         <li><a href="reviews.html">Отзывы</a></li>
-                        <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
-                        <li><a class="cart" href="#profile"><img src="images/icons/basket.png" ></a></li>
+                        <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div class="mobile">
-                <div class="header-burger"><span></span></div>
-                <a class="mobile-cart" href="#profile"><img src="images/icons/basket.png"></a>
-            </div>
-        </header>
-        <nav class="mobile-menu">
-            <ul>
-                <li><a href="index.html">Главная</a></li>
-                <li><a href="catalog.html">Наше печенье</a></li>
-                <li><a href="reviews.html">Отзывы</a></li>
-                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
-            </ul>
-        </nav>
-        <div id="login-form" class="popup">
-            <div class="floating-cookies">
-                <div class="cookie"><img src="images/cookie1.png"></div>
-                <div class="cookie"><img src="images/cookie2.png"></div>
-                <div class="cookie"><img src="images/cookie3.png"></div>
-                <div class="cookie"><img src="images/cookie1.png"></div>
-                <div class="cookie"><img src="images/cookie3.png"></div>
-            </div>
-            <form class="registration-form" action="#" method="post">
-                <h1>РЕГИСТРАЦИЯ</h1>
-                <input type="text" placeholder="Имя🙋🏻‍♂️" id="name" name="name" required autofocus>
-                <input type="number" placeholder="Телефон🤳" id="number" name="number" required>
-                <input type="email" placeholder="Почта💌" id="email" name="email" required>
-                <input type="password" placeholder="Пароль🤫" id="password" name="password" required>
-                <button id="registration-button" type="submit">РЕГИСТРАЦИЯ</button>
-                <button id="login-button" type="submit">Уже есть аккаунт</button>
-            </form>
-            <button id="closeLoginFormButton">ЗАКРЫТЬ</button>
-        </div>
-        <main>
-            <section class="pinterest">
-                <h1>₊˚♡ ⊹₊˚ ФОТО-ОТЗЫВЫ НА НАШИ ПЕЧЕНЬКИ ₊˚⊹♡ ̆̈</h1>
-                <div class="board">
-                    <div class="photo"><img src="images/pinterest/photo1.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo4.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo5.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo6.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo7.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo9.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo8.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo21.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo10.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo11.JPG"></div>
-                    <div class="photo"><img src="images/pinterest/photo22.JPG"></div>
+                <div id="loginForm" class="popup">
+                    <div class="floating-squares">
+                        <div class="square"><img src="images/cookie1.png"></div>
+                        <div class="square"><img src="images/cookie2.png"></div>
+                        <div class="square"><img src="images/cookie3.png"></div>
+                        <div class="square"><img src="images/cookie1.png"></div>
+                        <div class="square"><img src="images/cookie3.png"></div>
+                    </div>
+                    <form class="registration-form">
+                        <h1>РЕГИСТРАЦИЯ</h1>
+                        <input type="text" placeholder="Имя🙋🏻‍♂️" id="name" name="name" required autofocus>
+                        <input type="number" placeholder="Телефон🤳" id="number" name="number" required>
+                        <input type="email" placeholder="Почта💌" id="email" name="email" required>
+                        <input type="password" placeholder="Пароль🤫" id="password" name="password" required>
+                        <button id="registration-button" type="submit">РЕГИСТРАЦИЯ</button>
+                        <button id="login-button" type="submit">Уже есть аккаунт</button>
+                    </form>
+                    <button id="closeLoginFormButton">Закрыть</button>
                 </div>
-            </section>
-        </main>
-        <a href="#up">
-            <img id="arrow" src="images/up-arrow-button.png"/>
-        </a>
-        <div class="for_footer">
-            <footer>
-                <div class="footer_container">
-                    <div class="sec aboutus">
-                        <h2>О нас</h2>
-                        <p>Lorem, ipsum dolor 
-                            sit amet consectetur 
-                            adipisicing elit. Corporis 
-                            quibusdam dolorum dolore quo necessitatibus nobis. 
-                            Quae qui sed itaque, veritatis facilis labore adipisci 
-                            alias ipsum libero quis 
-                            hic aliquid reiciendis?
-                        </p>
-                        <ul class="sci">
-                            <li><a id="yt" href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                            <li><a id="tg" href="#"><i class="fa-brands fa-telegram"></i></a></li>
-                            <li><a id="tel" href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
-                        </ul>
+        <div class="wrapper">
+            <div class="content">
+                <main>
+                    <div class="about-us">
+                        <div class="head">
+                            <h2 class="head-title">КТО МЫ?</h2>
+                            <img class="cookie-monster" src="/images/cookie_monster_cook.png">
+                        </div>
+                        <div class="gallery">
+                            <div class="left-column">
+                                <img class="gallery-item" src="/images/baker.JPG" alt="baker">
+                                <div class="text-block gallery-item">
+                                    <h2 class="text-block__title">
+                                        Кто такие Monster Crunch?
+                                    </h2>
+                                    <p class="text-block__p">
+                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis est corrupti, architecto placeat magni labore laboriosam voluptatibus dolore nesciunt omnis voluptatem ex nemo dolor qui doloribus amet adipisci natus veritatis!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                                    </p>
+                                </div>
+                                <img class="gallery-item" src="/images/baker3.JPG" alt="baker">
+                                <img class="gallery-item" src="/images/cookies1.JPG" alt="baker">
+                            </div>
+                            <div class="right-column">
+                                <div class="text-block gallery-item">
+                                    <h2 class="text-block__title">
+                                        Кто такие Monster Crunch?
+                                    </h2>
+                                    <p class="text-block__p">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                                    </p>
+                                </div>
+                                <img class="gallery-item" src="/images/team1.png" alt="baker">
+                                <img class="gallery-item" src="/images/kitchen.JPG" alt="baker">
+                                <div class="text-block gallery-item">
+                                    <h2 class="text-block__title">
+                                        Кто такие Monster Crunch?
+                                    </h2>
+                                    <p class="text-block__p">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="sec quicklinks">
-                        <h2>Полезные ссылки</h2>
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Help</a></li>
-                            <li><a href="#">Terms & Conditions</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="sec contact">
-                        <h2>Свяжитесь с нами</h2>
-                        <ul class="info">
-                            <li>
-                                <span><i class="fa-solid fa-map"></i></i></i></span>
-                                <span>
-                                    Мичуринский пр-т 12, к2<br>
-                                    Москва,<br>
-                                    Россия
-                                </span>
-                            </li>
-                            <li>
-                                <span><i class="fa-solid fa-phone"></i></i></i></span>
-                                <p><a href="tel:+79624217078">+7(951)194-01-52</a></p>
-                            </li>
-                            <li>
-                                <span><i class="fa-solid fa-envelope"></i></i></i></span>
-                                <p><a href="mailto:monstercrunch@mail.ru">monstercrunch@mail.ru</a></p>
-                            </li>
-                        </ul>
+                    <section class="pinterest">
+                        <h1>₊˚♡ ⊹₊˚ ФОТО-ОТЗЫВЫ НА НАШИ ПЕЧЕНЬКИ ₊˚⊹♡ ̆̈</h1>
+                        <div class="board">
+                            <div class="photo"><img src="images/pinterest/photo1.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo4.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo5.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo6.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo7.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo9.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo8.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo21.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo10.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo11.JPG"></div>
+                            <div class="photo"><img src="images/pinterest/photo22.JPG"></div>
+                        </div>
+                    </section>
+                </main>
+                <a href="#up">
+                    <img id="arrow" src="images/up-arrow-button.png"/>
+                </a>
+                <div class="for_footer">
+                    <footer>
+                        <div class="footer_container">
+                            <div class="sec aboutus">
+                                <h2>О нас</h2>
+                                <p>Lorem, ipsum dolor 
+                                    sit amet consectetur 
+                                    adipisicing elit. Corporis 
+                                    quibusdam dolorum dolore quo necessitatibus nobis. 
+                                    Quae qui sed itaque, veritatis facilis labore adipisci 
+                                    alias ipsum libero quis 
+                                    hic aliquid reiciendis?
+                                </p>
+                                <ul class="sci">
+                                    <li><a id="yt" href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                                    <li><a id="tg" href="#"><i class="fa-brands fa-telegram"></i></a></li>
+                                    <li><a id="tel" href="#"><i class="fa-brands fa-whatsapp"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="sec quicklinks">
+                                <h2>Полезные ссылки</h2>
+                                <ul>
+                                    <li><a href="#">About</a></li>
+                                    <li><a href="#">FAQ</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Help</a></li>
+                                    <li><a href="#">Terms & Conditions</a></li>
+                                    <li><a href="#">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div class="sec contact">
+                                <h2>Свяжитесь с нами</h2>
+                                <ul class="info">
+                                    <li>
+                                        <span><i class="fa-solid fa-map"></i></i></i></span>
+                                        <span>
+                                            Мичуринский пр-т 12, к2<br>
+                                            Москва,<br>
+                                            Россия
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-phone"></i></i></i></span>
+                                        <p><a href="tel:+79624217078">+7(951)194-01-52</a></p>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa-solid fa-envelope"></i></i></i></span>
+                                        <p><a href="mailto:monstercrunch@mail.ru">monstercrunch@mail.ru</a></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                    <div class="copyrightingText">
+                        <p>Copyright © 2022. All Right Reserved.</p>
                     </div>
                 </div>
-            </footer>
-            <div class="copyrightingText">
-                <p>Copyright © 2022. All Right Reserved.</p>
             </div>
         </div>
     </body>

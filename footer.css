@@ -2,10 +2,12 @@
   display: grid;
   justify-content: end;
   align-content: end;
+  background-color: var(--main-color);
 }
 
 footer {
-  position: relative;
+  position: sticky;
+  bottom: 0;
   width: 100%;
   height: auto;
   padding: 50px 100px;

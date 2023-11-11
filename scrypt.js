@@ -6,34 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupLoginForm = document.getElementById("loginForm");
   const closeLoginFormButton = document.getElementById("closeLoginFormButton");
   showLoginFormButton.addEventListener("click", function () {
-      //pract 9
-      let result = prompt("Желаете пройти регистрацию на сайте?");
-      if (result == "Да") {
-        alert("Круто!")
-        result = prompt("Введите логин или АДМИН для администрирования.");
-        if (result == "АДМИН") {
-          result = prompt("Введите пароль.")
-          if (result == "Я главный") {
-            alert("Здравствуйте!")
-          }
-          else if (!result) {
-            alert ("Отменено.")
-          }
-          else {
-            alert ("Неверный пароль.")
-          }
-        }
-        else if (!result) {
-          alert("Отменено");
-        }
-        else {
-          alert("Я вас не знаю... Зарегистрируйтесь!");
-          popupLoginForm.style.display = "flex";
-        }
-      }
-      else {
-        alert("Попробуйте еще раз..")
-      }
+    console.log("click");
+    popupLoginForm.style.display = "flex";
   });
 
   showLoginFormButtonMobile.addEventListener("click", function () {
@@ -62,10 +36,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const products = document.querySelector(".products");
   const product = document.querySelectorAll(".product");
-  let currentDegree = 0;
+  const newElement = document.querySelector(".rotate-button");
+
+  const allElements = [...product, newElement];
+  var currentDegree = 0;
   
-  product.forEach(item => {
+  allElements.forEach(item => {
     item.addEventListener("click", function(event) {
+      let titleIn;
+      let titleOut;
+      let itemIn;
+      let itemOut;
+      switch (currentDegree % 360) {
+        case 0:
+          itemOut = document.getElementById("ginger-cat");
+          itemIn = document.getElementById("lovely-puppy");
+          titleIn = document.getElementById("name__lovely-puppy");
+          titleOut = document.getElementById("name__ginger-cat");
+          itemIn.style.opacity = 1;
+          itemOut.style.opacity = 0;
+          titleOut.style.right = "-50%";
+          titleIn.style.right = "5%";
+          break;
+        case 90:
+          itemOut = document.getElementById("lovely-puppy");
+          itemIn = document.getElementById("lazy-kitten");
+          titleIn = document.getElementById("name__lazy-kitten");
+          titleOut = document.getElementById("name__lovely-puppy");
+          itemIn.style.opacity = 1;
+          itemOut.style.opacity = 0;
+          titleOut.style.right = "-50%";
+          titleIn.style.right = "5%";
+          break;
+        case 180:
+          itemOut = document.getElementById("lazy-kitten");
+          itemIn = document.getElementById("choco-dog");
+          titleIn = document.getElementById("name__choco-dog");
+          titleOut = document.getElementById("name__lazy-kitten");
+          itemIn.style.opacity = 1;
+          itemOut.style.opacity = 0;
+          titleOut.style.right = "-50%";
+          titleIn.style.right = "5%";
+          break;
+        case 270:
+          itemOut = document.getElementById("choco-dog");
+          itemIn = document.getElementById("ginger-cat");
+          titleIn = document.getElementById("name__ginger-cat");
+          titleOut = document.getElementById("name__choco-dog");
+          itemIn.style.opacity = 1;
+          itemOut.style.opacity = 0;
+          titleOut.style.right = "-50%";
+          titleIn.style.right = "5%";
+          break;
+      }
       currentDegree += 90;
       products.style.transform = "rotate(" + currentDegree + "deg)";
     });
@@ -102,10 +125,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener('mousemove', e => {
     Object.assign(document.documentElement, {
       style: `
-      --move-x: ${(e.clientX) * .0005}vw;
-      --move-y: ${(e.clientY) * .0009}vw;
+      --move-x: ${(e.clientX) * .005}px;
+      --move-y: ${(e.clientY) * .009}px;
       `
     })
   }); 
   
+  var item = localStorage.getItem('whereToLook');
+  if (!item){
+    console.log("null");
+  }
+  else {
+    console.log(item);
+    document.body.appendChild(item);
+  }
 });

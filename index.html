@@ -6,11 +6,17 @@
         <title>MonsterCrunch</title>
         <link rel="icon" type="image/png" href="images/cookie_monster.png">
         <link rel="stylesheet" href="/style.css">
+        <script src="libs/gsap/gsap.min.js" defer></script>
+        <script src="libs/gsap/ScrollTrigger.min.js" defer></script>
+        <script src="libs/gsap/ScrollSmoother.min.js" defer></script>
         <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script src="/smotherscroll.js" type="text/javascript" defer></script>
         <script src="/scrypt.js" type="text/javascript" defer></script>
     </head>
     <body>
-        <div class="interactive-header">
+        <div class="wrapper">
+            <div class="content">
+                <div class="interactive-header">
             <div class="word">
                 <div class="letter">M</div>
                 <div class="letter">O</div>
@@ -78,7 +84,7 @@
             <button id="closeLoginFormButton">Закрыть</button>
         </div>
         <main>
-            <section class="little-description">
+            <div class="little-description">
                 <div class="text">
                     <h1 id="up">Если ты любишь cookies так же, как и cookie monster...</h1>
                     <p>...то купить идеальное печенье по секретному рецепту ты можешь в MonsterCrunch! Хотите испытать настоящий взрыв вкусов в каждом укусе? Тогда добро пожаловать в наш магазин печенья, где хрустящее печенье становится настоящим искусством!</p>
@@ -86,68 +92,187 @@
                 <div class="image">
                     <img src="images/cookie_monster_eat.png"/>
                 </div>
-            </section>
-            <article class="new-products">
+            </div>
+            <div class="buyline"></div>
+            <div class="new-products">
                 <div class="description">
                     <h2>СЕЗОННОЕ ПРЕДЛОЖЕНИЕ</h2>
-                    <p>В этот раз наши пекари постарались и придумали рецепт по-особому хрустящего печенья. Эти печеньки в виде милых кошечек и собачек точно поднимут вам настроение! Они станут прекрасным компаньоном к вашему стакану теплого молока. Разделите их с близкими и пусть радость наполняет ваш дом!</p>
+                    <p>В этот раз наши пекари постарались и придумали рецепт по-особому хрустящего печенья. Эти печеньки в виде милых кошечек и собачек точно поднимут вам настроение! Они станут прекрасным компаньоном к вашему стакану теплого молока. Разделите их с близкими.</p>
                     <button href="catalog.html" class="horror-button">К КАТАЛОГУ</button>
                 </div>
                 <div class="products">
-                    <img class="product product__1" src="/images/cat_cookie.png">
-                    <img class="product product__2" src="/images/dog_cookie.png">
-                    <img class="product product__3" src="/images/cat_cookie_2.png">
-                    <img class="product product__4" src="/images/dog_cookie1.png">
+                    <img id="ginger-cat" class="product product__1" src="/images/cat_cookie.png">
+                    <img id="lovely-puppy" class="product product__2" src="/images/dog_cookie.png">
+                    <img id="lazy-kitten" class="product product__3" src="/images/cat_cookie_2.png">
+                    <img id="choco-dog" class="product product__4" src="/images/dog_cookie1.png">
                 </div>
                 <div class="product_names">
-                    <div class="product-name product-name__1"><span></span></div>
-                    <div class="product-name product-name__2"><span></span></div>
-                    <div class="product-name product-name__3"><span></span></div>
-                    <div class="product-name product-name__4"><span></span></div>
+                    <div id="name__ginger-cat" class="product-name product-name__1"><span>GINGER CAT</span></div>
+                    <div id="name__lovely-puppy" class="product-name product-name__2"><span>LOVELY PUPPY</span></div>
+                    <div id="name__lazy-kitten" class="product-name product-name__3"><span>LAZY KITTEN</span></div>
+                    <div id="name__choco-dog" class="product-name product-name__4"><span>CHOCO DOG</span></div>
                 </div>
-            </article>
-            <section class="cookie-line">
+                <i class="rotate-button fa-solid fa-arrow-right"></i>
+                <div class="emojis">
+                    <div class="emoji-line emoji-line__1">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__2">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__3">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__4">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__5">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__6">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__7">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                    <div class="emoji-line emoji-line__8">
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                        <div class="emoji">☕</div>
+                        <div class="emoji">🥛</div>
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-line">
                 <span>C</span>
                 <img class="cookie cookie__1" src="images/cookie1.png">
                 <img class="cookie cookie__2" src="images/cookie1.png">
                 <img class="cookie cookie__3" src="images/cookie1.png">
                 <img class="cookie cookie__4" src="images/cookie1.png">
                 <span>KIES</span>
-            </section>
-            <article class="about-us">
-                <!--<section class="our-team">
-                    <h2>НАША КОМАНДА</h2>
-                    <div class="team-image team-image__leader"><img src="images/leader.JPG"></div>
-                    <div class="team-image team-image__team1"><img src="images/team1.png"></div>
-                    <div class="team-image team-image__baker3"><img src="images/baker3.JPG"></div>
-                </section>-->
-                <!--<section class="grid-container">
-                    <div class="grid-item grid-item__image1">
-                      <img src="/images/baker.JPG">
+            </div>
+            <div class="about-us">
+                <div class="head">
+                    <h2 class="head-title head-title__1">Кто</h2>
+                    <h2 class="head-title head-title__2">такие</h2>
+                    <h2 class="head-title head-title__3">Monster</h2>
+                    <h2 class="head-title head-title__4">Crunch?</h2>
+                    <img class="cookie-monster" src="/images/cookie_monster_cook.png">
+                </div>
+                <div data-speed="1.1" class="gallery">
+                    <div class="left-column">
+                        <img class="gallery-item" src="/images/baker.JPG" alt="baker">
+                        <div class="text-block gallery-item">
+                            <h2 class="text-block__title">
+                                Кто такие Monster Crunch?
+                            </h2>
+                            <p class="text-block__p">
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nobis est corrupti, architecto placeat magni labore laboriosam voluptatibus dolore nesciunt omnis voluptatem ex nemo dolor qui doloribus amet adipisci natus veritatis!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                            </p>
+                        </div>
+                        <img class="gallery-item" src="/images/baker3.JPG" alt="baker">
+                        <img class="gallery-item" src="/images/cookies1.JPG" alt="baker">
                     </div>
-                    <div class="grid-item grid-item__about">
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat doloremque libero sequi consequatur aliquam, illum, placeat, earum molestiae quis non porro maxime tempora id? Eos veniam placeat ex asperiores doloribus!Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, velit assumenda, amet consequatur iste voluptas iusto voluptatem quo animi nostrum distinctio voluptatum doloribus alias quasi illo provident obcaecati optio. Tenetur.</p>
+                    <div data-speed="0.9"  class="right-column">
+                        <div class="text-block gallery-item">
+                            <h2 class="text-block__title">
+                                Кто такие Monster Crunch?
+                            </h2>
+                            <p class="text-block__p">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                            </p>
+                        </div>
+                        <img class="gallery-item" src="/images/team1.png" alt="baker">
+                        <img class="gallery-item" src="/images/kitchen.JPG" alt="baker">
+                        <div class="text-block gallery-item">
+                            <h2 class="text-block__title">
+                                Кто такие Monster Crunch?
+                            </h2>
+                            <p class="text-block__p">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia iure quos ad cumque incidunt amet. Soluta, necessitatibus. Deserunt quaerat quibusdam hic quam repellendus, fugit reiciendis cupiditate consectetur, eum ea et.
+                            </p>
+                        </div>
                     </div>
-                    <div class="grid-item grid-item__image2">
-                      <img src="/images/cookie_monster_first.jpg">
-                    </div>
-                    <div class="grid-item grid-item__cookie">
-                        <img src="/images/cookie1.png">
-                        <span>CHOCO BOOM</span>
-                        <p>Вкусное хрустящее печенье с шоколадной крошкой и нежной начинкой внутри.</p>
-                        <button class="horror-button">КУПИТЬ</button>
-                    </div>
-                    <div class="grid-item grid-item__catalog">
-                      <img src="/images/pinterest/photo6.JPG">
-                      <p>Начни и закончи свой день с чашки ароматного чая и нежного печенья от Monster Crunch. Позволь себе этот нежный праздник, который начинается с первого укуса и заканчивается улыбкой на твоем лице.</p>
-                    </div>
-                    <div class="grid-item grid-item__buyline"></div>
-                </section>-->
-            </article>
+                </div>
+            </div>
         </main>
-        <a href="#up">
-            <img id="arrow" src="images/up-arrow-button.png"/>
-        </a>
         <div class="for_footer">
             <footer>
                 <div class="footer_container">
@@ -201,8 +326,7 @@
                     </div>
                 </div>
             </footer>
-            <div class="copyrightingText">
-                <p>Copyright © 2022. All Right Reserved.</p>
+        </div>
             </div>
         </div>
     </body>

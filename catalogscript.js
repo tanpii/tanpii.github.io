@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () { 
-  //pract 9
   const likeButtons = document.querySelectorAll(".like-button");
 
   likeButtons.forEach(likeButton => {
@@ -16,6 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  //pract 9 start
 
   var isDrawing = false;
   const drawingButton = document.getElementById("drawing-button");
@@ -58,4 +59,19 @@ document.addEventListener("DOMContentLoaded", function () {
       drawnElements.length = 0;
     }, 1500); // удаляем после анимации
   }
+  //pract 9 end
+
+  const buttonWhereToLook = document.getElementById("button-wheretolook");
+
+  buttonWhereToLook.addEventListener('click', function(){
+    var item = localStorage.getItem('whereToLook');
+    if (!item){
+      console.log("hello");
+      localStorage.setItem('whereToLook', 1);
+    }
+    else {
+      console.log("bye");
+    }
+  });
+
 });

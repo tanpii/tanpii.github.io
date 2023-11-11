@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupLoginForm = document.getElementById("loginForm");
   const closeLoginFormButton = document.getElementById("closeLoginFormButton");
   showLoginFormButton.addEventListener("click", function () {
-    console.log("click");
     popupLoginForm.style.display = "flex";
   });
 
@@ -47,6 +46,12 @@ document.addEventListener("DOMContentLoaded", function () {
       let titleOut;
       let itemIn;
       let itemOut;
+      let outValue = "-50%";
+      let inValue = "5%";
+      if (window.innerWidth < 769) {
+        outValue = "-100%";
+        inValue = "15%";
+      }
       switch (currentDegree % 360) {
         case 0:
           itemOut = document.getElementById("ginger-cat");
@@ -55,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function () {
           titleOut = document.getElementById("name__ginger-cat");
           itemIn.style.opacity = 1;
           itemOut.style.opacity = 0;
-          titleOut.style.right = "-50%";
-          titleIn.style.right = "5%";
+          titleOut.style.right = outValue;
+          titleIn.style.right = inValue;
           break;
         case 90:
           itemOut = document.getElementById("lovely-puppy");
@@ -65,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
           titleOut = document.getElementById("name__lovely-puppy");
           itemIn.style.opacity = 1;
           itemOut.style.opacity = 0;
-          titleOut.style.right = "-50%";
-          titleIn.style.right = "5%";
+          titleOut.style.right = outValue;
+          titleIn.style.right = inValue;
           break;
         case 180:
           itemOut = document.getElementById("lazy-kitten");
@@ -75,8 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
           titleOut = document.getElementById("name__lazy-kitten");
           itemIn.style.opacity = 1;
           itemOut.style.opacity = 0;
-          titleOut.style.right = "-50%";
-          titleIn.style.right = "5%";
+          titleOut.style.right = outValue;
+          titleIn.style.right = inValue;
           break;
         case 270:
           itemOut = document.getElementById("choco-dog");
@@ -85,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
           titleOut = document.getElementById("name__choco-dog");
           itemIn.style.opacity = 1;
           itemOut.style.opacity = 0;
-          titleOut.style.right = "-50%";
-          titleIn.style.right = "5%";
+          titleOut.style.right = outValue;
+          titleIn.style.right = inValue;
           break;
       }
       currentDegree += 90;
@@ -130,13 +135,4 @@ document.addEventListener("DOMContentLoaded", function () {
       `
     })
   }); 
-  
-  var item = localStorage.getItem('whereToLook');
-  if (!item){
-    console.log("null");
-  }
-  else {
-    console.log(item);
-    document.body.appendChild(item);
-  }
 });

@@ -72,17 +72,17 @@ button {
 .text p {
     font-size: calc(16px + 0.5vw);
     text-align:justify;
-    margin: 0px 20px;
+    margin: 20px;
 }
 
 .image {
     position: relative;
     transition: transform 0.3s;
-    margin: 0px 20px;
+    margin: 20px;
 }
 
 .image img {
-    width: calc(300px + 20vw);
+    width: calc(200px + 25vw);
 }
 
 .image::before,
@@ -114,6 +114,9 @@ button {
 @media (max-width: 990px) {
     .little-description {
         flex-flow: column;
+    }
+    .text {
+        margin: 5px;
     }
     .image {
         margin: 0;
@@ -153,9 +156,9 @@ button {
     position: relative;
     display: flex;
     align-items: center;
-    height: 3vw;
+    height: 5vw;
     margin: 20px 0;
-    font-size: calc(14px + 0.5vw);
+    
     font-weight: 500;
     background-color: var(--main-color);
     color: white;
@@ -164,7 +167,7 @@ button {
 
 .buyline::before {
     position: absolute;
-    font-size: 1.5vw;
+    font-size: calc(14px + 1vw);
     letter-spacing: 2px;
     content: "BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH BUY AND CRUNCH";
     white-space: nowrap;
@@ -244,6 +247,7 @@ button {
 }
 
 .product {
+    position: absolute;
     transform-origin: center;
     width: 25vw;
     cursor: pointer;
@@ -255,28 +259,24 @@ button {
 }
 
 .product__1 {
-    position: absolute;
     left: 50%;
     top: 0;
     transform: translateX(-50%);
 }
 
 .product__2 {
-    position: absolute;
     left: 0;
     top: 50%;
     transform: translateY(-50%) rotate(270deg);
 }
 
 .product__3 {
-    position: absolute;
     left: 50%;
     bottom: 0;
     transform: translateX(-50%) rotate(180deg);
 }
 
 .product__4 {
-    position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-50%) rotate(90deg);
@@ -361,28 +361,76 @@ button {
     will-change: transform;
 }
 
-/* @media (max-width: 1025px) and (min-width: 769px) {
+@media (max-width: 769px) {
     .new-products {
-        height: calc(60 * var(--index));
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: calc(100 * var(--index));
+        transition: all 0.5s;
     }
-    .products {
-        left: -30vw;
+    
+    .new-products .description {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        background-color: var(--main-color);
+        border-radius: 30px;
+        padding: 3vw 0.5vw;
     }
+    
+    .new-products .description > * {
+        margin: 1vw;
+    }
+    
+    .new-products h2 {
+        font-size: 5vw;
+    }
+    
+    .new-products p {
+        font-size: 2vw;
+    }
+    
+    .new-products button {
+        font-size: 2vw;
+    }
+    
     .product {
-        filter: drop-shadow(0 0 15px rgb(38, 39, 120, 0.7));
-        width: 33vw;
+        width: 40vw;
+        filter: drop-shadow(0 0 20px rgb(38, 39, 120, 0.7));
     }
+
+    .products {
+        bottom: calc(-58 * var(--index));
+    }
+    
+    .product-name {
+        top: 40%;
+        right: -100%;
+        width: 70%;
+    }
+    
+    #name__ginger-cat {
+        right: 15%;
+    }
+
     .new-products .rotate-button {
-        top: 75%;
+        position: absolute;
+        top: 50%;
         left: 50%;
         font-size: 7vw;
-        transform: translateX(-60%);
+        color: var(--main-color);
+        transform: translateX(-50%);
+        animation: productButtonAnimation 2s ease-in-out infinite; 
     }
-    .product-name {
-        position: absolute;
-        top: 72%;
-    }
-} */
+}
 
 /* раздел "кто мы?" */
 
@@ -453,17 +501,20 @@ button {
     margin-bottom: 5vw;
 }
 
+.right-column {
+    margin-top: 12vw;
+}
+
 .right-column > * {
-    margin-top: 5vw;
+    margin-bottom: 5vw;
 }
 
 .text-block__title {
-    color: var(--main-color);
-    font-size: 5vw;
+    font-size: calc(16px + 0.8vw);
 }
 
 .text-block__p {
-    font-size: 3vw;
+    font-size: calc(12px + 0.5vw);
 }
 
 

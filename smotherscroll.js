@@ -1,8 +1,8 @@
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother)
 
 document.addEventListener("DOMContentLoaded", function () {
-  if (ScrollTrigger.isTouch !== 1) { // только для ноутбуков и компьютеров
-
+  if ((ScrollTrigger.isTouch !== 1) && (window.innerWidth > 768)) { // только для ноутбуков и компьютеров
+    console.log("im here");
     ScrollSmoother.create({
       wrapper: '.wrapper',
       content: '.content',

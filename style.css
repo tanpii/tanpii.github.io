@@ -517,6 +517,18 @@ button {
     font-size: calc(12px + 0.5vw);
 }
 
+@media (max-width: 769px) {
+    .gallery {
+        flex-direction: column;
+    }
+    .gallery-item {
+        width: 80%;
+    }
+    .right-column {
+        margin-top: 0px;
+    }
+}
+
 
 @keyframes emojiAnimation {
     from {

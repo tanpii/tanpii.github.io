@@ -225,14 +225,14 @@ button {
 
 .new-products p {
     color: white;
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     text-align: center;
 }
 
 .new-products button {
     background: white;
     color: var(--main-color);
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     padding:  1.5vw 3.5vw;
     border-radius: 20px;
 }
@@ -293,7 +293,7 @@ button {
 .product-name {
     position: absolute;
     top: 35%;
-    right: -50%;
+    right: -100%;
     width: min-content;
     color: var(--main-color);
     text-shadow: 0 0 15px rgb(38, 39, 120, 0.5);
@@ -336,7 +336,7 @@ button {
     display: flex;
     width: 100%;
     justify-content: space-around;
-    margin-bottom: 100px;
+    margin-bottom: 20vh;
 }
 
 .emoji-line__1,
@@ -361,7 +361,7 @@ button {
     will-change: transform;
 }
 
-@media (max-width: 769px) {
+@media (max-width: 1025px) {
     .new-products {
         margin-top: 20px;
         position: relative;
@@ -377,7 +377,7 @@ button {
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 80%;
+        width: 90%;
         display: flex;
         flex-flow: column;
         align-items: center;
@@ -395,11 +395,11 @@ button {
     }
     
     .new-products p {
-        font-size: 2vw;
+        font-size: calc(12px + 0.5vw);
     }
     
     .new-products button {
-        font-size: 2vw;
+        font-size: calc(12px + 0.5vw);
     }
     
     .product {
@@ -414,21 +414,64 @@ button {
     .product-name {
         top: 40%;
         right: -100%;
-        width: 70%;
+        width: 80%;
     }
     
     #name__ginger-cat {
-        right: 15%;
+        right: 10%;
+    }
+
+    .new-products .rotate-button {
+        top: 50%;
+        left: 50%;
+        font-size: 7vw;
+    }
+
+    .emoji {
+        font-size: 4vw;
+    }
+}
+
+@media (max-width: 769px) {
+    .new-products {
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: calc(130 * var(--index));
+        transition: all 0.5s;
+    }
+    .product {
+        width: 50vw;
+        filter: drop-shadow(0 0 20px rgb(38, 39, 120, 0.7));
+    }
+
+    .products {
+        width: 200vw;
+        height: 200vw;
+        bottom: calc(-150 * var(--index));
+        left: -50%;
+    }
+    
+    .product-name {
+        font-size: 9vw;
+        top: 45%;
     }
 
     .new-products .rotate-button {
         position: absolute;
-        top: 50%;
+        top: 55%;
         left: 50%;
-        font-size: 7vw;
+        font-size: 10vw;
         color: var(--main-color);
         transform: translateX(-50%);
         animation: productButtonAnimation 2s ease-in-out infinite; 
+    }
+}
+
+@media (max-width: 400px) {
+    .new-products {
+        height: calc(150 * var(--index));
     }
 }
 

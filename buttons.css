@@ -43,7 +43,6 @@
 
 .horror-button:hover {
   transform: scaleX(1.1) rotate(-2deg);
-  background-color: #fbd4af;
   transition: all 1s;
 }
 

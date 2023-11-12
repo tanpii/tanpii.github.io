@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ScrollSmoother.create({
       wrapper: '.wrapper',
       content: '.content',
-      smooth: 1.5,
+      smooth: 1.2,
       effects: true
     })
 

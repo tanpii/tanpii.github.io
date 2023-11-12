@@ -46,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
       let titleOut;
       let itemIn;
       let itemOut;
-      let outValue = "-50%";
+      let outValue = "-100%";
       let inValue = "5%";
-      if (window.innerWidth < 769) {
+      if (window.innerWidth < 1025) {
         outValue = "-100%";
-        inValue = "15%";
+        inValue = "10%";
       }
       switch (currentDegree % 360) {
         case 0:

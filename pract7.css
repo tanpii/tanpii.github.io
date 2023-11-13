@@ -4,6 +4,122 @@
   --third-color: #0077d2;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  background-color: var(--main-color);
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(12px + 0.2vw);
+  font-weight: 900;
+  color: white;
+  cursor: pointer;
+}
+
+.pract10 {
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pract10 > * {
+  margin: 20px;
+}
+
+.face-button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #fdda5f;
+  box-shadow: inset 2px -4px 18px #fd9744;
+}
+
+.face-container {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 20px;
+  margin: auto;
+}
+
+.cart-container > * {
+  margin: 10px;
+}
+
+.cart-container i {
+  background-color: var(--main-color);
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+}
+
+.eye {
+  position: absolute;
+  height: 7px;
+  width: 7px;
+  background: #2a2927;
+  border-radius: 50%;
+  animation: eyeBlink 3.2s linear infinite;
+}
+
+.eye.left {
+  left: 0;
+}
+.eye.right {
+  right: 0;
+}
+
+.mouth {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  width: 20px;
+  height: 3px;
+  background: #2a2927;
+  border-radius: 0;
+}
+
+.eye, .mouth {
+ box-shadow: inset 1px 2px 4px #121110;
+}
+
+.face-button:hover .mouth,
+.face-button:active .mouth {
+  left: 15px;
+  width: 10px;
+  height: 7px;
+  border-radius: 5px 5px 2px 2px;
+}
+
+.face-button:hover .eye,
+.face-button:active .eye {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px white;
+}
+
+@keyframes eyeBlink {
+  0%, 30%, 36%, 100% {
+      transform: scale(1);
+  }
+  32%, 34% {
+      transform: scale(1,0);
+  }
+}
+
 .cards {
   display: flex;
   justify-content: center;
@@ -94,6 +210,15 @@
   text-align: center;
 }
 
+@keyframes animate {
+  0%, 100%{
+      transform: translateY(5px);
+  }
+  50%{
+      transform: translateY(-5px);
+  }
+}
+
 .cards  .card span::before,
 .cards  .card span::after {
   position: absolute;
@@ -137,15 +262,6 @@
 
 }
 
-@keyframes animate {
-  0%, 100%{
-      transform: translateY(5px);
-  }
-  50%{
-      transform: translateY(-5px);
-  }
-}
-
 .cards  .card .content {
   position: relative;
   left: 0;
@@ -162,7 +278,7 @@
 
 .cards  .card:hover .content {
   left: -25px;
-  padding: 30px 40px;
+  padding: 50px 40px;
 }
 
 .cards .card .content h2 {
@@ -331,7 +447,7 @@
 
 .cards3 .box:hover {
   background: repeating-conic-gradient(from var(--a), #27d7ff 0%, #27d7ff 5%, transparent 5%, transparent 40%, #27d7ff  50%);
-  animation: animate 4s linear infinite;
+  animation: animate1 4s linear infinite;
   filter: brightness(100%);
   transform: scale(1.05);
 }
@@ -350,7 +466,7 @@
   initial-value: 0deg;
 }
 
-@keyframes animate {
+@keyframes animate1 {
   from {
       --a: 0deg;
   }
@@ -368,7 +484,7 @@
 }
 
 .cards3 .box:hover::before {
-  animation: animate 4s linear infinite;
+  animation: animate1 4s linear infinite;
   animation-delay: -1s;
 }
 

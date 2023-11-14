@@ -1,16 +1,22 @@
-class Product {
-  constructor(id, name, description, price, imageUrl) {
-    this.id == id;
-    this.name = name;
-    this.description = description;
-    this.price = price;
-    this.imageUrl = imageUrl;
-  }
+import Product from "./product_class.js";
+import Cart from "./cart_class.js";
+
+// создание корзины, если ее еще нет в локальном хранилище
+var cart;
+const cartJSON = localStorage.getItem('cart');
+
+if (cartJSON) {
+  cart = new Cart();
+  Object.assign(cart, JSON.parse(cartJSON)); //копируем данные для временного объекта
+} else {
+  cart = new Cart();
+  localStorage.setItem('cart', JSON.stringify(cart));
 }
 
 // создание базы данных, если ее еще нет в локальном хранилище
+var productDatabase;
 if (localStorage.getItem('productDatabase') == null) {
-  const productDatabase = [
+  productDatabase = [
     new Product("1", "GINGER CAT", "Ароматное ореховое печенье с хрустящими орехами. Наслаждение каждым кусочком.", "₽299", "/images/cookie_type/ginger_cat.jpg"),
     new Product("2", "LOVELY PUPPY", "Ароматное ореховое печенье с хрустящими орехами. Наслаждение каждым кусочком.", "₽259", "/images/cookie_type/lovely_puppy.jpg"),
     new Product("3", "LAZY KITTEN", "Ароматное ореховое печенье с хрустящими орехами. Наслаждение каждым кусочком.", "₽259", "/images/cookie_type/lazy_kitten.jpg"),
@@ -28,15 +34,14 @@ if (localStorage.getItem('productDatabase') == null) {
     new Product("15", "AMOROUS", "Ароматное ореховое печенье с хрустящими орехами. Наслаждение каждым кусочком.", "$6.99", "/images/cookie_type/amorous.jpg"),
     new Product("16", "SOFTNESS", "Ароматное ореховое печенье с хрустящими орехами. Наслаждение каждым кусочком.", "$6.99", "/images/cookie_type/softness.jpg")
   ];
-  const productDatabaseJSON = JSON.stringify(productDatabase);
-  localStorage.setItem('productDatabase', productDatabaseJSON);
+  localStorage.setItem('productDatabase', JSON.stringify(productDatabase));
+} else {
+  productDatabase = JSON.parse(localStorage.getItem('productDatabase'));
 }
 
-// загрузка продуктов на страницу
+// функция загрузки продуктов на страницу
 function loadProducts() {
   const catalogContainer = document.querySelector(".shop");
-  const productDatabaseJSON = localStorage.getItem('productDatabase');
-  const productDatabase = JSON.parse(productDatabaseJSON);
 
   productDatabase.forEach(product => {
     const card = document.createElement("div");
@@ -52,10 +57,89 @@ function loadProducts() {
         <p class="name"><b>${product.name}</b></p>
         <p class="info">${product.description}</p>
       </div>
-      <button class="button"><i class="fa-solid fa-basket-shopping" style="color: white; font-size: calc(12px + 0.2vw);"></i> КУПИТЬ</button>
+      <div class="cart-button" id="${product.id}">
+        <button class="buy-button">КУПИТЬ</button>
+        <div class="addmore">
+          <button class="less-button">-</button>
+          <span class="count">1</span>
+          <button class="more-button">+</button>
+        </div>
+      </div>
     `;
     catalogContainer.appendChild(card);
   });
 }
 
-window.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", function(){
+  loadProducts(); // загружаем продукты на страницу
+  
+  const cartButtons = document.querySelectorAll(".cart-button");
+  cartButtons.forEach(button => {
+    var count = 0;
+    var buyButton = button.querySelector(".buy-button");
+    var addMoreContainer = button.querySelector(".addmore");
+    var moreButton = button.querySelector(".more-button");
+    var lessButton = button.querySelector(".less-button");
+    var countSpan = button.querySelector(".count");
+
+    const productId = button.id;
+    const selectedProduct = productDatabase.find(product => product.id === productId);
+    var isInCart = cart.products.some(product => product.id === productId);
+
+    if (isInCart) {
+      buyButton.style.visibility = "hidden";
+      addMoreContainer.style.visibility = "visible";
+      count = cart.products.find(product => product.id === productId).quantity;
+      countSpan.textContent = count;
+    }
+
+    buyButton.addEventListener("click", function() {
+      buyButton.style.visibility = "hidden";
+        addMoreContainer.style.visibility = "visible";
+        cart.addProduct(selectedProduct);
+        count++;
+    })
+
+    moreButton.addEventListener("click", function(){
+      cart.addProduct(selectedProduct);
+      count++;
+      countSpan.textContent = count;
+    })
+
+    lessButton.addEventListener("click", function(){
+      cart.removeProduct(selectedProduct);
+      count--;
+      if (count == 0) {
+        buyButton.style.visibility = "visible";
+        addMoreContainer.style.visibility = "hidden";
+        isClicked = false;
+      }
+      countSpan.textContent = count;
+    })
+  });
+
+  const cards = document.querySelectorAll('.cookie_type'); 
+
+  cards.forEach(card => {
+    var isTouched = false;
+    const imgContainer = card.querySelector('.img-container');
+    const textBlock = card.querySelector('.cookie_type_text');
+    const textInfoBlock = card.querySelector('.info');
+    imgContainer.addEventListener('touchstart', function(event) {
+      event.preventDefault(); // Предотвращаем действие по умолчанию (например, открытие контекстного меню)
+      if (!isTouched) {
+        textBlock.classList.add('touch-active'); // Добавляем класс при касании
+        textInfoBlock.classList.add('touch-active__info');
+        isTouched = true;
+      } else {
+        textBlock.classList.remove('touch-active'); // Добавляем класс при касании
+        textInfoBlock.classList.remove('touch-active__info');
+        isTouched = false;
+      }
+    });
+  });
+});
+
+window.addEventListener('beforeunload', function() {
+  localStorage.setItem('cart', JSON.stringify(cart)); // записываем в локальное хранилище данные из временного объекта
+});

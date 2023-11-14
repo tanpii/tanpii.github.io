@@ -7,7 +7,7 @@
 @import url(reviews.css);
 @import url(loginform.css);
 @import url(catalog.css);
-
+@import url(cart.css);
 
 :root {
     --main-color: #262877;
@@ -25,6 +25,22 @@ body {
 * {
     margin: 0;
     box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    width: 10px; /* Ширина полосы прокрутки */
+}
+  
+/* Стили для трека (бара) полосы прокрутки WebKit (Chrome, Safari) */
+body::-webkit-scrollbar-track {
+    background: var(--main-color); /* Цвет трека (бара) */
+}
+
+/* Стили для дорожки полосы прокрутки WebKit (Chrome, Safari) */
+body::-webkit-scrollbar-thumb {
+    background-color: #ffffff; /* Цвет дорожки (бара) */
+    border-radius: 20px; /* Радиус углов дорожки (бара) */
+    border: var(--main-color) 3px solid;
 }
 
 /* will-change */

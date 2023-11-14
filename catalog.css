@@ -1,3 +1,53 @@
+.cookie-filters {
+  padding: 20px; 
+  display: flex;
+  align-items:baseline;
+}
+
+.cookie-filters h1 {
+  flex: 1;
+  font-size: calc(16px + 4vw);
+  animation: headerIn 1s ease-in;
+}
+
+.cookie-filters label {
+  margin: 0 10px;
+  font-size: calc(12px + 0.3vw);
+  font-weight: 600;
+}
+
+.cookie-filters select {
+  padding: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: calc(12px + 0.3vw);
+  font-weight: 600;
+  border: var(--main-color) 2px solid;
+  border-radius: 15px;
+}
+
+.cookie-filters .selectors {
+  animation: selectorsIn 1s ease-in;
+}
+
+@keyframes headerIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes selectorsIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
 .shop {
   padding-top: 50px;
   padding-left: 20px;
@@ -12,6 +62,16 @@
   margin-bottom: calc(20px + 3vw);
   width: calc(250px + 6vw);
   height: calc(300px + 6vw);
+  animation: cookieTypeIn 1s ease-in;
+}
+
+@keyframes cookieTypeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .cookie_type .img-container {
@@ -43,6 +103,18 @@
   background-color: var(--main-color);
   padding: 5px;
   margin: 5px;
+  border-radius: 8px;
+  color: white;
+  font-size: calc(12px + 0.2vw);
+  font-weight: 500;
+}
+
+.season-offer {
+  position: absolute;
+  background-color: #a41e32;
+  padding: 5px;
+  margin: 5px;
+  margin-left: calc((12px + 0.2vw)*4);
   border-radius: 8px;
   color: white;
   font-size: calc(12px + 0.2vw);

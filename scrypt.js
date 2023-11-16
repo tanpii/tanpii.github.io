@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
       popupLoginForm.style.display = "none";
   });
 
+  document.getElementById('login-button').addEventListener('click', function() {
+      console.log('click');
+      window.location.href = 'catalog.html';
+  });
+
   const burgerButton = document.querySelector(".header-burger");
   const mobileMenu = document.querySelector(".mobile-menu");
 

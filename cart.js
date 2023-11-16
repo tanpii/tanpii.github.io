@@ -15,7 +15,7 @@ if (cartJSON) {
 }
 
 function loadProducts() {
-  const cartContainer = document.querySelector(".cart-container");
+  const cartContainer = document.querySelector(".products-container");
 
   cart.products.forEach(product => {
     const card = document.createElement("div");
@@ -24,36 +24,77 @@ function loadProducts() {
 
     card.innerHTML = `
     <div class="image-container"><img src="${product.imageUrl}"></div>
-    <span class="info">${product.name} | ${product.price}</span>
+    <span class="product-card__name">${product.name}</span>
     <div class="addmore" id="${product.id}">
       <button class="less-button">-</button>
       <span class="count">${product.quantity}</span>
       <button class="more-button">+</button>
     </div>
-    <span class="count"> ${cost}</span>
+    <div class="line"></div>
+    <span class="product-card__cost">₽${cost}</span>
     `;
     cartContainer.appendChild(card);
   });
 }
 
+function loadInfoAboutOrder(isPickup = false) {
+  const resultSpan = document.querySelector(".result");
+  const costSpan = document.querySelector(".result-cost");
+  const deliverySpan = document.querySelector(".result-delivery");
+
+  let totalCost = 0;
+  let totalDelivery;
+
+  cart.products.forEach(product => {
+    totalCost += product.quantity * parseInt(product.price.substring(1));
+  });
+
+  if (totalCost < 500) {
+    totalDelivery = 499;
+  } else if (totalCost < 800) {
+    totalDelivery = 399;
+  } else if (totalCost < 1200) {
+    totalDelivery = 299;
+  } else if (totalCost < 1500) {
+    totalDelivery = 199;
+  } else if (totalCost < 1800) {
+    totalDelivery = 99;
+  }
+  else {
+    totalDelivery = 0;
+  }
+
+  costSpan.textContent = '₽' + totalCost;
+  deliverySpan.textContent = '₽' + totalDelivery;
+  if (isPickup) {
+    resultSpan.textContent = '₽' + totalCost;
+  } else {
+    resultSpan.textContent = '₽' + (totalCost + totalDelivery);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function(){
   loadProducts();
+  loadInfoAboutOrder();
 
   const productCards = document.querySelectorAll(".product-card");
   productCards.forEach(card => {
-    var addmore = card.querySelector(".addmore");
-    var moreButton = card.querySelector(".more-button");
-    var lessButton = card.querySelector(".less-button");
-    var countSpan = card.querySelector(".count");
+    const addmore = card.querySelector(".addmore");
+    const moreButton = card.querySelector(".more-button");
+    const lessButton = card.querySelector(".less-button");
+    const countSpan = card.querySelector(".count");
 
     const productId = addmore.id;
-    const selectedProduct = productDatabase.find(product => product.id === productId);
-    var count = cart.products.find(product => product.id === productId).quantity;
+    const selectedProduct = cart.products.find(product => product.id === productId);
+    var count = selectedProduct.quantity;
+    var costSpan = card.querySelector(".product-card__cost");
 
     moreButton.addEventListener("click", function(){
       cart.addProduct(selectedProduct);
       count++;
       countSpan.textContent = count;
+      costSpan.textContent = '₽' + count * parseInt(selectedProduct.price.substring(1));
+      loadInfoAboutOrder();
     })
 
     lessButton.addEventListener("click", function(){
@@ -63,7 +104,21 @@ document.addEventListener("DOMContentLoaded", function(){
         card.remove();
       }
       countSpan.textContent = count;
+      costSpan.textContent = '₽' + count * parseInt(selectedProduct.price.substring(1));
+      loadInfoAboutOrder();
     })
+  });
+
+  const pickupCheckbox = document.getElementById('pickup-checkbox');
+
+  pickupCheckbox.addEventListener('change', function(event) {
+    if (this.checked) {
+      document.querySelector(".result-delivery").style.textDecoration = 'line-through';
+      loadInfoAboutOrder(true);
+    } else {
+      document.querySelector(".result-delivery").style.textDecoration = 'none';
+      loadInfoAboutOrder();
+    }
   });
 });
 

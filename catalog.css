@@ -1,17 +1,24 @@
 .cookie-filters {
   padding: 20px; 
   display: flex;
-  align-items:baseline;
+  flex-flow: wrap;
+  align-items: baseline;
 }
 
 .cookie-filters h1 {
+  margin: 0 10px;
   flex: 1;
-  font-size: calc(16px + 4vw);
+  min-width: fit-content;
+  font-size: calc(20px + 3vw);
   animation: headerIn 1s ease-in;
 }
 
 .cookie-filters label {
-  margin: 0 10px;
+  display: inline-flex; /* Делаем label и select строчно-блочными */
+  align-items: center; /* Выравнивание элементов в центре */
+  gap: 5px; /* Отступ между label и select */
+  white-space: nowrap;
+  margin: 10px;
   font-size: calc(12px + 0.3vw);
   font-weight: 600;
 }
@@ -96,9 +103,10 @@
   font-size: calc(12px + 0.2vw);
   background-color: white;
   color: #a41e32;
+  cursor: pointer;
 }
 
-.price {
+.cookie_type__price {
   position: absolute;
   background-color: var(--main-color);
   padding: 5px;
@@ -139,7 +147,7 @@
   min-height: 100%;
 }
 
-.name {
+.cookie_type_text__name {
   font-size: calc(12px + 0.3vw);
   position: absolute;
   text-align: left;
@@ -147,7 +155,7 @@
   left: 15%;
 }
 
-.info {
+.cookie_type_text__info {
   font-size: calc(12px + 0.2vw);
   position: absolute;
   text-align: center;
@@ -194,7 +202,6 @@
   bottom: 20px;
   border: var(--main-color) 3px solid;
   border-radius: 10px;
-  /*background: var(--main-color); */
 }
 
 .cookie_type .more-button,
@@ -231,7 +238,7 @@
     transition: transform 1s ease-in-out;
   }
 
-  .cookie_type .img-container:hover + .cookie_type_text .info {
+  .cookie_type .img-container:hover + .cookie_type_text .cookie_type_text__info {
     opacity: 1;
     transition: opacity 1.5s ease-in-out;
   }

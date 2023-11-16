@@ -15,21 +15,19 @@
     </head>
     <body>
         <div id="loginForm" class="popup">
-            <div class="floating-squares">
-                <div class="square"><img src="images/cookie1.png"></div>
-                <div class="square"><img src="images/cookie2.png"></div>
-                <div class="square"><img src="images/cookie3.png"></div>
-                <div class="square"><img src="images/cookie1.png"></div>
-                <div class="square"><img src="images/cookie3.png"></div>
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
             </div>
-            <form class="registration-form">
-                <h1>РЕГИСТРАЦИЯ</h1>
-                <input type="text" placeholder="Имя🙋🏻‍♂️" id="name" name="name" required autofocus>
-                <input type="number" placeholder="Телефон🤳" id="number" name="number" required>
+            <form class="login-form">
+                <h1>ВХОД</h1>
                 <input type="email" placeholder="Почта💌" id="email" name="email" required>
                 <input type="password" placeholder="Пароль🤫" id="password" name="password" required>
-                <button id="registration-button" type="submit">РЕГИСТРАЦИЯ</button>
-                <button id="login-button" type="submit">Уже есть аккаунт</button>
+                <a href="profile.html" id="login-button">ВОЙТИ</a>
+                <a href="profile.html" id="registration-button">Ещё нет аккаунта</a>
             </form>
             <button id="closeLoginFormButton">Закрыть</button>
         </div>

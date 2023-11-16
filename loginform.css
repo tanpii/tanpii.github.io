@@ -6,9 +6,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgba(0, 86, 154, 0.7);
+  background: rgb(38, 39, 120, 0.8);
   backdrop-filter: blur(10px);
-  padding: 10px;
+  padding: 30px 10px;
   border-radius: 30px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   text-align: center;
@@ -17,24 +17,27 @@
   align-items: center;
 }
 
-.registration-form {
-  display: grid;
+.login-form {
+  z-index: 100;
+  display: flex;
+  flex-flow: column;
   width: 100%;
-  grid-template-columns: 1fr 1fr;
   justify-content: center;
   align-items: center;
-  gap: 15px;
 }
 
-.registration-form h1 {
-  grid-column: span 2;
+.login-form > * {
+  margin-bottom: 10px;
+}
+
+.login-form h1 {
   margin: 5px;
   font-size: 30px;
   color: white;
 }
 
-.registration-form input {
-  width: 100%;
+.login-form input {
+  width: 90%;
   padding: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
@@ -44,22 +47,18 @@
   border-radius: 10px;
 }
 
-.registration-form input:focus {
+.login-form input:focus {
   background-color: transparent; 
   outline: none;
   border: 3px solid white;
 }
 
-.registration-form input::placeholder {
+.login-form input::placeholder {
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
 
-.registration-form button {
-  grid-column: span 2;
-}
-
-#registration-button {
+#login-button {
   background-color: white;
   color: var(--main-color);
   border: none;
@@ -69,16 +68,20 @@
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
   font-weight: 900;
+  text-decoration: none;
   cursor: pointer;
 }
 
-#login-button, 
+#registration-button, 
 #closeLoginFormButton {
+  padding: 0;
   background-color: transparent;
   border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  font-weight: 900;
   color: white;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -88,7 +91,7 @@
   }
 }
 
-.floating-squares {
+.floating-cookies {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -97,19 +100,21 @@
   height: 100%;
 }
 
-.floating-squares .square:nth-child(1),
-.floating-squares .square:nth-child(2),
-.floating-squares .square:nth-child(3),
-.floating-squares .square:nth-child(4),
-.floating-squares .square:nth-child(5) {
+.floating-cookie:nth-child(1),
+.floating-cookie:nth-child(2),
+.floating-cookie:nth-child(3),
+.floating-cookie:nth-child(4),
+.floating-cookie:nth-child(5) {
+  z-index: 10;
   content: "";
   position: absolute;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); 
   border-radius: 50%;
   animation: float 4s linear infinite;
+  will-change: transform;
 }
 
-.floating-squares .square:nth-child(1) {
+.floating-cookie:nth-child(1) {
   width: 50px;
   height: 50px;
   top: -25px;
@@ -117,8 +122,7 @@
   animation-delay: 0s;
 }
 
-.floating-squares .square:nth-child(2) {
-  z-index: 50px;
+.floating-cookie:nth-child(2) {
   width: 100px;
   height: 100px;
   top: -50px;
@@ -126,7 +130,7 @@
   animation-delay: 1.5s;
 }
 
-.floating-squares .square:nth-child(3) {
+.floating-cookie:nth-child(3) {
   width: 70px;
   height: 70px;
   top: -25px;
@@ -134,7 +138,7 @@
   animation-delay: 0.5s;
 }
 
-.floating-squares .square:nth-child(4) {
+.floating-cookie:nth-child(4) {
   width: 50px;
   height: 50px;
   bottom: 40px;
@@ -142,7 +146,7 @@
   animation-delay: 0.5s;
 }
 
-.floating-squares .square:nth-child(5) {
+.floating-cookie:nth-child(5) {
   width: 80px;
   height: 80px;
   bottom: -25px;
@@ -159,5 +163,50 @@
   }
   100% {
       transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 470px) {
+  .popup {
+    width: 300px;
+  }
+  .floating-cookie:nth-child(1) {
+    width: 35px;
+    height: 35px;
+    top: -15px;
+    left: -30px;
+    animation-delay: 0s;
+  }
+  
+  .floating-cookie:nth-child(2) {
+    width: 70px;
+    height: 70px;
+    top: -15px;
+    right: -15px;
+    animation-delay: 1.5s;
+  }
+  
+  .floating-cookie:nth-child(3) {
+    width: 50px;
+    height: 50px;
+    top: -15px;
+    left: 10px;
+    animation-delay: 0.5s;
+  }
+  
+  .floating-cookie:nth-child(4) {
+    width: 35px;
+    height: 35px;
+    bottom: 20px;
+    right: 5px;
+    animation-delay: 0.5s;
+  }
+  
+  .floating-cookie:nth-child(5) {
+    width: 60px;
+    height: 60px;
+    bottom: -15px;
+    left: -15px;
+    animation-delay: 2s;
   }
 }

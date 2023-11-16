@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Профиль</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <div class="center-menu">
+                <h1 id="title">MONSTER<br> CRUNCH</h1>
+                <div class="logo">
+                    <img src="images/cookie_monster.png"/>
+                </div>
+                <nav class="menu">
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="catalog.html">Наше печенье</a></li>
+                        <li><a href="reviews.html">Отзывы</a></li>
+                        <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
+                        <li><a class="cart" href="cart.html"><i class="fa-solid fa-basket-shopping" style="color: #262877; font-size: 24px;"></i></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile">
+                <div class="header-burger"><span></span></div>
+                <a class="mobile-cart" href="#profile"><i class="fa-solid fa-basket-shopping" style="color: #262877; font-size: 24px;"></i></a>
+            </div>
+        </header>
+        <nav class="mobile-menu">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="catalog.html">Наше печенье</a></li>
+                <li><a href="reviews.html">Отзывы</a></li>
+                <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        <div id="loginForm" class="popup">
+            <div class="floating-squares">
+                <div class="square"><img src="images/cookie1.png"></div>
+                <div class="square"><img src="images/cookie2.png"></div>
+                <div class="square"><img src="images/cookie3.png"></div>
+                <div class="square"><img src="images/cookie1.png"></div>
+                <div class="square"><img src="images/cookie3.png"></div>
+            </div>
+            <form action="#" method="post">
+                <h1>ВХОД</h1>
+                <input type="text" placeholder="Имя" id="name" name="name" required autofocus>
+                <input type="email" placeholder="Почта" id="email" name="email" required>
+                <input type="password" placeholder="Пароль" id="password" name="password" required>
+                <button type="submit">ВОЙТИ</button>
+            </form>
+            <button id="closeLoginFormButton">ЗАКРЫТЬ</button>
+        </div>
+        <div class="profile-container">
+            <div class="profile-info">
+                <img class="profile-photo" src="images/pinterest/photo13.JPG" alt="profile photo">
+                <div class="profile-personal">
+                    <span class="profile-personal__name"><b>ИМЯ:</b> Таня Порсева</span>
+                    <span class="profile-personal__email"><b>ПОЧТА:</b> useremail@mail.ru</span>
+                    <span class="profile-personal__number"><b>ТЕЛЕФОН:</b> +7(999) 888-77-66</span>
+                    <button class="profile-personal__change-button">ИЗМЕНИТЬ</button>
+                </div>
+            </div>
+            <div class="orders">
+                <span class="orders-title">МОИ ЗАКАЗЫ</span>
+                <div class="order-card">
+                    <span class="order-card__time">16 декабря в 12:15</span>
+                    <span class="order-card__cost">₽1298</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/amorous.jpg" alt="amorous"></div>
+                        <div class="order-product"><img src="images/cookie_type/lovely_puppy.jpg" alt="lovely_puppy"></div>
+                        <div class="order-product"><img src="images/cookie_type/ginger_cat.jpg" alt="ginger_cat"></div>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <span class="order-card__time">13 ноября в 12:15</span>
+                    <span class="order-card__cost">₽1098</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/choco_bear.jfif" alt="choco bear"></div>
+                        <div class="order-product"><img src="images/cookie_type/pink_bang.jpg" alt="pink_bang"></div>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <span class="order-card__time">1 сентября в 19:48</span>
+                    <span class="order-card__cost">₽2527</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/softness.jpg" alt="softness"></div>
+                        <div class="order-product"><img src="images/cookie_type/green_tea.jpg" alt="green_tea"></div>
+                        <div class="order-product"><img src="images/cookie_type/marshmallow.jpg" alt="marshmallow"></div>
+                        <div class="order-other">+5</div>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <span class="order-card__time">19 августа в 00:32</span>
+                    <span class="order-card__cost">₽3459</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/oreo_boom.jpg" alt="oreo_boom"></div>
+                        <div class="order-product"><img src="images/cookie_type/pink_bang.jpg" alt="pink_bang"></div>
+                        <div class="order-product"><img src="images/cookie_type/marshmallow.jpg" alt="marshmallow"></div>
+                        <div class="order-other">+7</div>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <span class="order-card__time">2 июля в 13:07</span>
+                    <span class="order-card__cost">₽948</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/oreo_boom.jpg" alt="oreo_boom"></div>
+                        <div class="order-product"><img src="images/cookie_type/nut_dream.jpg" alt="nut_dream"></div>
+                        <div class="order-product"><img src="images/cookie_type/carrot_lover.jpg" alt="carrot_lover"></div>
+                    </div>
+                </div>
+                <div class="order-card">
+                    <span class="order-card__time">12 июня в 12:15</span>
+                    <span class="order-card__cost">₽1898</span>
+                    <div class="order-products">
+                        <div class="order-product"><img src="images/cookie_type/sugar_nightmare.jfif" alt="sugar_nightmare"></div>
+                        <div class="order-product"><img src="images/cookie_type/green_tea.jpg" alt="green tea"></div>
+                        <div class="order-product"><img src="images/cookie_type/choco_bear.jfif" alt="choco bear"></div>
+                        <div class="order-other">+3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="favourite-products">
+                <span class="favourite-products__title">МОЁ ЛЮБИМОЕ ПЕЧЕНЬЕ</span>
+                <div class="favourite-product">
+                    <div class="favourite-product__photo"><img src="images/cookie_type/oreo_boom.jpg" alt="favourite-product"></div>
+                    <div class="favourite-product__info">
+                        <span class="favourite-product__name">OREO BOOM</span>
+                        <button class="like-button"><i class="heart fa-solid fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="favourite-product">
+                    <div class="favourite-product__photo"><img src="images/cookie_type/oreo_boom.jpg" alt="favourite-product"></div>
+                    <div class="favourite-product__info">
+                        <span class="favourite-product__name">OREO BOOM</span>
+                        <button class="like-button"><i class="heart fa-solid fa-heart"></i></button>
+                    </div>
+                </div>
+                <div class="favourite-product">
+                    <div class="favourite-product__photo"><img src="images/cookie_type/oreo_boom.jpg" alt="favourite-product"></div>
+                    <div class="favourite-product__info">
+                        <span class="favourite-product__name">OREO BOOM</span>
+                        <button class="like-button"><i class="heart fa-solid fa-heart"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

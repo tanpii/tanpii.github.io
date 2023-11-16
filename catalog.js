@@ -38,9 +38,15 @@ if (localStorage.getItem('productDatabase') == null) {
 } else {
   productDatabase = JSON.parse(localStorage.getItem('productDatabase'));
 }
+var favouriteProducts;
+if (localStorage.getItem('favourites') == null) {
+  favouriteProducts = [];
+  localStorage.setItem('favourites', JSON.stringify(productDatabase));
+} else {
+  favouriteProducts = JSON.parse(localStorage.getItem('favourites'));
+}
 
 const specialMenuProducts = productDatabase.filter(product => product.isSpecialMenu === true);
-const favouriteProducts = JSON.parse(localStorage.getItem('favourites'));
 
 // функция загрузки продуктов на страницу
 function loadProducts(products) {
@@ -58,13 +64,13 @@ function loadProducts(products) {
       card.innerHTML = `
         <div class="img-container">
           <button class="like-button"><i class="heart fa-regular fa-heart"></i></button>
-          <div class="price">${product.price}</div>
+          <div class="cookie_type__price">${product.price}</div>
           <div class="season-offer">сезонное предложение</div>
           <img src="${product.imageUrl}" alt="${product.name}">
         </div>
         <div class="cookie_type_text">
-          <p class="name"><b>${product.name}</b></p>
-          <p class="info">${product.description}</p>
+          <p class="cookie_type_text__name"><b>${product.name}</b></p>
+          <p class="cookie_type_text__info">${product.description}</p>
         </div>
         <div class="cart-button" id="${product.id}">
           <button class="buy-button">КУПИТЬ</button>
@@ -79,12 +85,12 @@ function loadProducts(products) {
       card.innerHTML = `
         <div class="img-container">
           <button class="like-button"><i class="heart fa-regular fa-heart"></i></button>
-          <div class="price">${product.price}</div>
+          <div class="cookie_type__price">${product.price}</div>
           <img src="${product.imageUrl}" alt="${product.name}">
         </div>
         <div class="cookie_type_text">
-          <p class="name"><b>${product.name}</b></p>
-          <p class="info">${product.description}</p>
+          <p class="cookie_type_text__name"><b>${product.name}</b></p>
+          <p class="cookie_type_text__info">${product.description}</p>
         </div>
         <div class="cart-button" id="${product.id}">
           <button class="buy-button">КУПИТЬ</button>
@@ -97,12 +103,15 @@ function loadProducts(products) {
       `;
     }
     catalogContainer.appendChild(card);
+
+    if (favouriteProducts.find(favourite => product.id === favourite.id)) {
+      card.querySelector('.img-container .like-button .heart').classList.remove("fa-regular");
+      card.querySelector('.img-container .like-button .heart').classList.add("fa-solid"); 
+    }
   });
 }
 
-document.addEventListener("DOMContentLoaded", function(){
-  loadProducts(productDatabase); // загружаем продукты на страницу
-  
+function setEventListenersToButtons() {
   const cartButtons = document.querySelectorAll(".cart-button");
   cartButtons.forEach(button => {
     var count = 0;
@@ -124,10 +133,12 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 
     buyButton.addEventListener("click", function() {
+      console.log('click');
       buyButton.style.visibility = "hidden";
-        addMoreContainer.style.visibility = "visible";
-        cart.addProduct(selectedProduct);
-        count++;
+      addMoreContainer.style.visibility = "visible";
+      cart.addProduct(selectedProduct);
+      count++;
+      countSpan.textContent = count;
     })
 
     moreButton.addEventListener("click", function(){
@@ -142,19 +153,21 @@ document.addEventListener("DOMContentLoaded", function(){
       if (count == 0) {
         buyButton.style.visibility = "visible";
         addMoreContainer.style.visibility = "hidden";
-        isClicked = false;
       }
       countSpan.textContent = count;
     })
   });
+}
 
+function setTouchListenersToCards() {
   const cards = document.querySelectorAll('.cookie_type'); 
 
   cards.forEach(card => {
     var isTouched = false;
     const imgContainer = card.querySelector('.img-container');
     const textBlock = card.querySelector('.cookie_type_text');
-    const textInfoBlock = card.querySelector('.info');
+    const textInfoBlock = card.querySelector('.cookie_type_text__info');
+
     imgContainer.addEventListener('touchstart', function(event) {
       event.preventDefault(); // Предотвращаем действие по умолчанию (например, открытие контекстного меню)
       if (!isTouched) {
@@ -167,7 +180,32 @@ document.addEventListener("DOMContentLoaded", function(){
         isTouched = false;
       }
     });
+
+    const likeButton = card.querySelector(".img-container .like-button");
+    const productId = card.querySelector('.cart-button').id;
+    const selectedProduct = productDatabase.find(product => product.id === productId);
+
+    likeButton.addEventListener('click', function() {
+      console.log("click");
+      const heart = likeButton.querySelector(".heart");
+
+      if (heart.classList.contains("fa-regular")) {
+        favouriteProducts.push(selectedProduct);
+        heart.classList.remove("fa-regular");
+        heart.classList.add("fa-solid");
+      } else {
+        favouriteProducts = favouriteProducts.filter(favourite => favourite.id != selectedProduct.id);
+        heart.classList.remove("fa-solid");
+        heart.classList.add("fa-regular");
+      }
+    });
   });
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+  loadProducts(productDatabase); // загружаем продукты на страницу
+  setEventListenersToButtons();
+  setTouchListenersToCards();
 
   var currentProducts = productDatabase;
 
@@ -176,10 +214,16 @@ document.addEventListener("DOMContentLoaded", function(){
     const selectedOption = this.value;
     if (selectedOption === "default") {
       loadProducts(currentProducts);
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     } else if (selectedOption === "ascending") {
       loadProducts([...currentProducts].sort((a, b) => a.price.localeCompare(b.price)));
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     } else if (selectedOption === "descending") {
       loadProducts([...currentProducts].sort((a, b) => b.price.localeCompare(a.price)));
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     }
   });
 
@@ -190,16 +234,24 @@ document.addEventListener("DOMContentLoaded", function(){
     if (selectedOption === "default") {
       currentProducts = productDatabase;
       loadProducts(currentProducts);
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     } else if (selectedOption === "favourite") {
       currentProducts = favouriteProducts;
       loadProducts(currentProducts);
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     } else if (selectedOption === "season") {
       currentProducts = specialMenuProducts;
       loadProducts(currentProducts);
+      setEventListenersToButtons();
+      setTouchListenersToCards();
     }
   });
+    
 });
 
 window.addEventListener('beforeunload', function() {
   localStorage.setItem('cart', JSON.stringify(cart)); // записываем в локальное хранилище данные из временного объекта
+  localStorage.setItem('favourites', JSON.stringify(favouriteProducts));
 });

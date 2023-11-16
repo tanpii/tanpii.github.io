@@ -12,6 +12,7 @@ class Cart {
   }
 
   addProduct(product) {
+    console.log('add');
     // проверяем, есть ли уже продукт в корзине
     const existingProductIndex = this.products.findIndex(p => p.id === product.id);
 

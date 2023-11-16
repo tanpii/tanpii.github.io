@@ -168,8 +168,12 @@
   background: var(--main-color);
 }
 
-.favourite-product__photo{
+.favourite-product__photo {
   margin: 5px;
+}
+
+.favourite-product__photo img {
+  aspect-ratio: 1/1;
 }
 
 .favourite-product__info {
@@ -181,7 +185,7 @@
 }
 
 .favourite-product__name {
-  font-size: calc(12px + 0.5vw);
+  font-size: calc(12px + 0.2vw);
   color: white;
   font-weight: 600;
   text-align: center;

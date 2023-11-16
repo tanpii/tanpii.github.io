@@ -244,6 +244,15 @@
     max-height: 40vh;
     margin-bottom: 10px;
   }
+  .order-product {
+    width: 8vw;
+    height: 8vw;
+  }
+  .order-other {
+    width: 8vw;
+    height: 8vw;
+    line-height: 8vw;
+  }
   .favourite-products {
     width: 90%;
     max-height: 50vh;

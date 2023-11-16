@@ -244,20 +244,28 @@
     max-height: 40vh;
     margin-bottom: 10px;
   }
+  .order-card {
+    padding: 3vw;
+  }
   .order-product {
-    width: 8vw;
-    height: 8vw;
+    width: 12vw;
+    height: 12vw;
+    margin-right: 2vw;
   }
   .order-other {
-    width: 8vw;
-    height: 8vw;
-    line-height: 8vw;
+    width: 12vw;
+    height: 12vw;
+    line-height: 12vw;
   }
   .favourite-products {
     width: 90%;
     max-height: 50vh;
     margin-bottom: 10px;
   }
+  .favourite-product {
+    padding: 3vw;
+  }
+  
 }
 
 @media (max-width: 445px) {

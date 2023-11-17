@@ -8,8 +8,26 @@
         <link rel="stylesheet" href="/style.css">
         <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
         <script type="module" src="/catalog.js" defer></script>
+        <script src="burger.js" type="text/javascript" defer></script>
     </head>
     <body>
+        <div id="loginForm" class="popup">
+            <div class="floating-cookies">
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie2.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+                <div class="floating-cookie"><img src="images/cookie1.png"></div>
+                <div class="floating-cookie"><img src="images/cookie3.png"></div>
+            </div>
+            <form class="login-form">
+                <h1>ВХОД</h1>
+                <input type="email" placeholder="Почта💌" id="email" name="email" required>
+                <input type="password" placeholder="Пароль🤫" id="password" name="password" required>
+                <a href="profile.html" id="login-button">ВОЙТИ</a>
+                <a href="profile.html" id="registration-button">Ещё нет аккаунта</a>
+            </form>
+            <button id="closeLoginFormButton">Закрыть</button>
+        </div>
         <header>
             <div class="center-menu">
                 <h1 id="title">MONSTER<br> CRUNCH</h1>
@@ -22,13 +40,13 @@
                         <li><a href="catalog.html">Наше печенье</a></li>
                         <li><a href="reviews.html">Отзывы</a></li>
                         <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
-                        <li><a class="cart" href="cart.html"><i class="fa-solid fa-basket-shopping" style="color: #262877; font-size: 24px;"></i></li>
+                        <li><a class="cart" href="cart.html"><img src="images/icons/basket.png" ></a></li>
                     </ul>
                 </nav>
             </div>
             <div class="mobile">
                 <div class="header-burger"><span></span></div>
-                <a class="mobile-cart" href="#profile"><i class="fa-solid fa-basket-shopping" style="color: #262877; font-size: 24px;"></i></a>
+                <a class="mobile-cart" href="cart.html"><img src="images/icons/basket.png"></a>
             </div>
         </header>
         <nav class="mobile-menu">
@@ -39,23 +57,6 @@
                 <li><a id="showLoginFormButtonMobile" href="#profile">Личный кабинет</a></li>
             </ul>
         </nav>
-        <div id="loginForm" class="popup">
-            <div class="floating-squares">
-                <div class="square"><img src="images/cookie1.png"></div>
-                <div class="square"><img src="images/cookie2.png"></div>
-                <div class="square"><img src="images/cookie3.png"></div>
-                <div class="square"><img src="images/cookie1.png"></div>
-                <div class="square"><img src="images/cookie3.png"></div>
-            </div>
-            <form action="#" method="post">
-                <h1>ВХОД</h1>
-                <input type="text" placeholder="Имя" id="name" name="name" required autofocus>
-                <input type="email" placeholder="Почта" id="email" name="email" required>
-                <input type="password" placeholder="Пароль" id="password" name="password" required>
-                <button type="submit">ВОЙТИ</button>
-            </form>
-            <button id="closeLoginFormButton">ЗАКРЫТЬ</button>
-        </div>
         <main>
             <div class="cookie-filters">
                 <h1>НАШЕ ПЕЧЕНЬЕ</h1>

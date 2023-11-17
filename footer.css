@@ -77,13 +77,13 @@ footer .footer_container .sec p {
 }
 
 #yt::before {
-  background: linear-gradient(to bottom, #d60019, #b60b19);
+  background: linear-gradient(to bottom, #ff94a1, #ff939c);
 }
 #tg::before {
-  background: linear-gradient(to bottom, #00aeb4, #007890);
+  background: linear-gradient(to bottom, #b6fdff, #90edff);
 }
 #tel::before {
-  background: linear-gradient(to bottom, #0dc350, #189a37);
+  background: linear-gradient(to bottom, #bcffd5, #8cffa7);
 }
 
 .sci li a:hover::before {

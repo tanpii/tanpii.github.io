@@ -66,7 +66,7 @@ function loadProducts(products) {
           <button class="like-button"><i class="heart fa-regular fa-heart"></i></button>
           <div class="cookie_type__price">${product.price}</div>
           <div class="season-offer">сезонное предложение</div>
-          <img src="${product.imageUrl}" alt="${product.name}">
+          <img class="cookie_type__image" src="${product.imageUrl}" alt="${product.name}">
         </div>
         <div class="cookie_type_text">
           <p class="cookie_type_text__name"><b>${product.name}</b></p>
@@ -86,7 +86,7 @@ function loadProducts(products) {
         <div class="img-container">
           <button class="like-button"><i class="heart fa-regular fa-heart"></i></button>
           <div class="cookie_type__price">${product.price}</div>
-          <img src="${product.imageUrl}" alt="${product.name}">
+          <img class="cookie_type__image" src="${product.imageUrl}" alt="${product.name}">
         </div>
         <div class="cookie_type_text">
           <p class="cookie_type_text__name"><b>${product.name}</b></p>
@@ -164,7 +164,7 @@ function setTouchListenersToCards() {
 
   cards.forEach(card => {
     var isTouched = false;
-    const imgContainer = card.querySelector('.img-container');
+    const imgContainer = card.querySelector('.img-container .cookie_type__image');
     const textBlock = card.querySelector('.cookie_type_text');
     const textInfoBlock = card.querySelector('.cookie_type_text__info');
 

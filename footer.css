@@ -55,13 +55,13 @@ footer .footer_container .sec p {
 
 .sci li a {
   position: relative;
-  color:white;
+  color:var(--main-color);
   overflow: hidden;
   display: inline-block;
   border-radius: 50%;
   width: calc(30px + 1vw);
   height: calc(30px + 1vw);
-  background: grey;
+  background: white;
   display: grid;
   align-content: center;
   justify-content: center;

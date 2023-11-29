@@ -1,0 +1,86 @@
+.notification-wrapper {
+  height: 100vh;
+  display: flex;
+}
+
+.notification-wrapper button {
+  background: white;
+  color: var(--main-color);
+  border: 3px solid var(--main-color);
+  margin: 3px;
+  transition: all 0.2s ease-in;
+  font-weight: 600;
+}
+
+.notification-wrapper button:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in;
+}
+
+.notification-container {
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+.notification-container button {
+  width: 350px;
+}
+
+.notifications {
+  width: 500px;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 10px;
+  height: 400px;
+  overflow-y: scroll;
+}
+
+.notifications::-webkit-scrollbar {
+  width: 3px; /* Ширина полосы прокрутки */
+}
+
+/* Стили для трека (бара) полосы прокрутки WebKit (Chrome, Safari) */
+.notifications::-webkit-scrollbar-track {
+  background: transparent; /* Цвет трека (бара) */
+}
+
+/* Стили для дорожки полосы прокрутки WebKit (Chrome, Safari) */
+.notifications::-webkit-scrollbar-thumb {
+  background-color: var(--main-color); /* Цвет дорожки (бара) */
+  border-radius: 10px; /* Радиус углов дорожки (бара) */
+}
+
+.notification {
+  background: var(--main-color);
+  color: white;
+  text-align: left;
+  padding: 20px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+}
+
+.list-container {
+  width: 450px;
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+}
+
+.list-container #list {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.task-4 {
+  width: 350px;
+  display: flex;
+  flex-flow: column;
+  padding: 20px;
+}
+
+.task-4 button {
+  margin-bottom: 20px;;
+}

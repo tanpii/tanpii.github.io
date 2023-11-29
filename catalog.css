@@ -270,3 +270,21 @@
     height: calc(220px + 6vw);
   }
 }
+
+.cookie-add {
+  visibility: hidden;
+  z-index: 100;
+  position: fixed;
+  right: 3%;
+  bottom: 5%;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: white;
+  color: var(--main-color);
+  font-weight: 700;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.fa-heart {
+  color: #a41e32;
+}

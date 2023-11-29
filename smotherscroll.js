@@ -10,6 +10,36 @@ document.addEventListener("DOMContentLoaded", function () {
       effects: true
     })
 
+    gsap.fromTo('.text', {x: -50 }, {
+      x: 0,
+      scrollTrigger: {
+        trigger: '.text',
+        start: '-850',
+        end: '-100',
+        scrub: true
+      }
+    })
+
+    gsap.fromTo('.image', {x: 50 }, {
+      x: 0,
+      scrollTrigger: {
+        trigger: '.image',
+        start: '-850',
+        end: '-100',
+        scrub: true
+      }
+    })
+
+    gsap.fromTo('.why-we', {scale: 0.7 }, {
+      scale: 1,
+      scrollTrigger: {
+        trigger: '.why-we',
+        start: '-600',
+        end: '-100',
+        scrub: true
+      }
+    })
+
     let itemsText = gsap.utils.toArray('.head-title')
 
     itemsText.forEach(item => {

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MonsterCrunch</title>
+        <link rel="icon" type="image/png" href="images/cookie_monster.png">
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
+        <script type="module" src="/cart.js" defer></script>
+        <script src="pract12.js" type="text/javascript" defer></script>
+    </head>
+    <body>
+      <div class="notification-wrapper">
+        <div class="notification-container">
+          <button onclick="startNotifications()">Запустить уведомления</button>
+          <button onclick="pauseNotifications()">Приостановить уведомления</button>
+          <button onclick="stopNotifications()">Остановить уведомления</button>
+          <div class="notifications">
+            <!-- Здесь будут отображаться уведомления -->
+          </div>
+        </div>
+        <div class="list-container">
+          <button onclick="createList()">Добавить элементы</button>
+          <ul id="list"></ul>
+        </div>
+        <div class="task-4">
+          <button onclick="showNotification({ content: '(づ ᴗ _ᴗ)づ♡' })">Показать уведомление</button>
+        </div>
+      </div>
+    </body>
+</html>

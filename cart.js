@@ -14,7 +14,24 @@ if (cartJSON) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
+function loadCount() {
+  var cartCounters = document.querySelectorAll('.cart-count');
+  cartCounters.forEach(cartCount => {
+    cartCount.textContent = cart.count;
+  })
+}
+
 function loadProducts() {
+  if (cart.products.length == 0) {
+    document.querySelector('.cart-container').innerHTML = `
+      <div class="no-products">
+        <img class="no-products__photo" src="images/cookie_monster_sad.jpg">
+        <span>корзина пуста :(</span>
+        <a href="catalog.html">К КАТАЛОГУ</a>
+      </div>
+    `;
+    return;
+  }
   const cartContainer = document.querySelector(".products-container");
 
   cart.products.forEach(product => {
@@ -42,27 +59,8 @@ function loadInfoAboutOrder(isPickup = false) {
   const costSpan = document.querySelector(".result-cost");
   const deliverySpan = document.querySelector(".result-delivery");
 
-  let totalCost = 0;
-  let totalDelivery;
-
-  cart.products.forEach(product => {
-    totalCost += product.quantity * parseInt(product.price.substring(1));
-  });
-
-  if (totalCost < 500) {
-    totalDelivery = 499;
-  } else if (totalCost < 800) {
-    totalDelivery = 399;
-  } else if (totalCost < 1200) {
-    totalDelivery = 299;
-  } else if (totalCost < 1500) {
-    totalDelivery = 199;
-  } else if (totalCost < 1800) {
-    totalDelivery = 99;
-  }
-  else {
-    totalDelivery = 0;
-  }
+  let totalCost = cart.cost;
+  let totalDelivery = cart.delivery;
 
   costSpan.textContent = '₽' + totalCost;
   deliverySpan.textContent = '₽' + totalDelivery;
@@ -74,6 +72,7 @@ function loadInfoAboutOrder(isPickup = false) {
 }
 
 document.addEventListener("DOMContentLoaded", function(){
+  loadCount();
   loadProducts();
   loadInfoAboutOrder();
 
@@ -89,12 +88,13 @@ document.addEventListener("DOMContentLoaded", function(){
     var count = selectedProduct.quantity;
     var costSpan = card.querySelector(".product-card__cost");
 
-    moreButton.addEventListener("click", function(){
+    moreButton.addEventListener("click", function() {
       cart.addProduct(selectedProduct);
       count++;
       countSpan.textContent = count;
       costSpan.textContent = '₽' + count * parseInt(selectedProduct.price.substring(1));
       loadInfoAboutOrder();
+      loadCount();
     })
 
     lessButton.addEventListener("click", function(){
@@ -106,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function(){
       countSpan.textContent = count;
       costSpan.textContent = '₽' + count * parseInt(selectedProduct.price.substring(1));
       loadInfoAboutOrder();
+      loadCount();
     })
   });
 
@@ -115,9 +116,11 @@ document.addEventListener("DOMContentLoaded", function(){
     if (this.checked) {
       document.querySelector(".result-delivery").style.textDecoration = 'line-through';
       loadInfoAboutOrder(true);
+      loadCount();
     } else {
       document.querySelector(".result-delivery").style.textDecoration = 'none';
       loadInfoAboutOrder();
+      loadCount();
     }
   });
 });

@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-@import url(buttons.css);
 @import url(footer.css);
 @import url(header.css);
 @import url(reviews.css);
@@ -8,10 +6,11 @@
 @import url(catalog.css);
 @import url(cart.css);
 @import url(profile.css);
+@import url(pract12.css);
 
 :root {
     --main-color: #262877;
-    --second-color: #00569a;
+    --second-color: rgb(0, 64, 154);
     --third-color: rgb(187, 159, 132);
     --index: 1vw + 1vh;
 }
@@ -328,6 +327,7 @@ button {
     color: var(--main-color);
     transform: translateX(-50%);
     animation: productButtonAnimation 2s ease-in-out infinite; 
+    cursor: pointer;
 }
 
 @keyframes productButtonAnimation {
@@ -573,6 +573,7 @@ button {
 }
 
 .text-block__p {
+    text-align: justify;
     font-size: calc(12px + 0.5vw);
 }
 
@@ -588,18 +589,177 @@ button {
     }
 }
 
+.why-we {
+    padding: 1vw 3vw;
+}
 
-@keyframes emojiAnimation {
-    from {
-        transform: scale(1) rotate(0deg);
-    }
-    33% {
-        transform: scale(1.07) rotate(5deg);
-    }
-    66% {
-        transform: scale(1.12) rotate(-5deg);
-    }
-    to {
-        transform: scale(1) rotate(0);
-    }
+#why-we-carousel {
+    position: relative;
+}
+
+.owl-nav {
+    width: calc(100% + 60px);
+    position: absolute;
+    top: 40%;
+    left: -30px;
+    text-align: center;
+    font-size: calc(26px + 0.6vw);
+    color: black;
+}
+
+.owl-prev {
+    position: absolute;
+    left: 0;
+}
+
+.owl-next {
+    position: absolute;
+    right: 0;
+}
+
+.owl-dots {
+    margin-top: 10px;
+    text-align: center; /* Центрирование точек */
+}
+
+/* Стили для отдельных точек */
+.owl-dot {
+    display: inline-block;
+    width: 10px; /* Ширина точки */
+    height: 10px; /* Высота точки */
+    margin: 0 5px; /* Расстояние между точками */
+    background: #ccc !important; /* Цвет точек */ 
+    border-radius: 50%; /* Округление углов для создания круглых точек */
+}
+
+/* Стили для активной точки */
+.owl-dot.active {
+    background: black !important; /* Цвет активной точки */
+}
+
+.why-we-card {
+    background: linear-gradient(var(--second-color), var(--main-color));
+    width: calc(250px + 8vw);
+    height: calc(350px + 5vw);
+    margin: calc(20px + 2vw);
+    border-radius: 10px;
+    position: relative;
+    filter: drop-shadow(0 3px 5px rgb(0, 0, 0, 0.3));
+}
+
+
+.owl-stage-outer {
+    padding: 3vw 0;
+}
+.owl-item > * {
+    transition: transform 0.5s ease-in-out;
+}
+
+.owl-item.center > * {
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
+
+.why-we-card__friends .why-we-card__img {
+    z-index: 1;
+    position: absolute;
+    width: 110%;
+    top: -15%;
+    left: -5%;
+}
+
+.why-we-card__friends .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 2vw;
+}
+
+.why-we-card__bath .why-we-card__img {
+    z-index: 1;
+    position: absolute;
+    width: 105%;
+    bottom: -15%;
+    left: 10%;
+}
+
+.why-we-card__bath .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 2vw;
+}
+
+.why-we-card__gift .why-we-card__img {
+    position: absolute;
+    width: 80%;
+    bottom: 0%;
+    right: -13%;
+}
+
+.why-we-card__gift .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 2vw;
+}
+
+.why-we-card__bakers .why-we-card__img {
+    z-index: 1;
+    position: absolute;
+    width: 85%;
+    bottom: -7%;
+    left: 25%;
+}
+
+.why-we-card__bakers .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    padding: 2vw;
+}
+
+.why-we-card__love .why-we-card__img {
+    z-index: 1;
+    position: absolute;
+    width: 80%;
+    top: -10%;
+    left: 10%;
+}
+
+.why-we-card__love .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 2vw;
+}
+
+.why-we-card__birthday .why-we-card__img {
+    z-index: 1;
+    position: absolute;
+    width: 80%;
+    top: -16%;
+    left: 10%;
+}
+
+.why-we-card__birthday .why-we-card__text {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 2vw;
+}
+
+.why-we-card__title {
+    width: 100%;
+    color: white;
+    font-weight: 900;
+    font-size: calc(17px + 0.4vw);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.why-we-card__desc {
+    color: white;
+    font-size: calc(12px + 0.4vw);
+    text-align: justify;
 }

@@ -9,6 +9,7 @@
         <script src="https://kit.fontawesome.com/be9639af8e.js" crossorigin="anonymous"></script>
         <script src="profile.js" type="text/javascript" defer></script>
         <script src="burger.js" type="text/javascript" defer></script>
+        <script type="module" src="cart_count.js" type="text/javascript" defer></script>
     </head>
     <body>
         <div id="loginForm" class="popup">
@@ -40,13 +41,19 @@
                         <li><a href="catalog.html">Наше печенье</a></li>
                         <li><a href="reviews.html">Отзывы</a></li>
                         <li><a id="showLoginFormButton" href="#profile">Личный кабинет</a></li>
-                        <li><a class="cart" href="cart.html"><img src="images/icons/basket.png" ></a></li>
+                        <li><a class="cart" href="cart.html">
+                            <span class="cart-count"></span>
+                            <img src="images/icons/basket.png" >
+                        </a></li>
                     </ul>
                 </nav>
             </div>
             <div class="mobile">
                 <div class="header-burger"><span></span></div>
-                <a class="mobile-cart" href="cart.html"><img src="images/icons/basket.png"></a>
+                <a class="mobile-cart" href="cart.html">
+                    <span class="cart-count"></span>
+                    <img src="images/icons/basket.png">
+                </a>
             </div>
         </header>
         <nav class="mobile-menu">
@@ -60,7 +67,7 @@
         <main>
             <div class="profile-container">
                 <div class="profile-info">
-                    <img class="profile-photo" src="images/pinterest/photo13.JPG" alt="profile photo">
+                    <img class="profile-photo" src="images/profile photo.JPG" alt="profile photo">
                     <div class="profile-personal">
                         <span class="profile-personal__name"><b>ИМЯ:</b> Таня Порсева</span>
                         <span class="profile-personal__email"><b>ПОЧТА:</b> useremail@mail.ru</span>

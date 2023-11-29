@@ -260,3 +260,32 @@
   }
 }
 
+.no-products {
+  position: absolute;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  margin-top: 10vw;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.no-products span {
+  font-size: calc(12px + 0.2vw);
+  font-weight: 600;
+}
+
+.no-products a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: var(--main-color);
+  color: white;
+  font-size: calc(12px + 0.2vw);
+  font-weight: 600;
+}
+
+.no-products > * {
+  margin-bottom: 10px;
+}

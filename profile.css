@@ -4,6 +4,7 @@
   align-items: flex-start;
   justify-content: space-around;
   margin-top: 5vh;
+  margin-bottom: 20px;
 }
 
 .profile-info {
@@ -151,6 +152,7 @@
   overflow-y: scroll;
   width: 35%;
   max-height: 80vh;
+  padding-bottom: 10px;
 }
 
 .favourite-products__title {
@@ -170,10 +172,13 @@
 
 .favourite-product__photo {
   margin: 5px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
 }
 
 .favourite-product__photo img {
-  aspect-ratio: 1/1;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .favourite-product__info {

@@ -11,8 +11,31 @@ class Cart {
     return this.products.reduce((acc, product) => acc + product.quantity, 0);
   }
 
+
+  get delivery() {
+    const totalCost = this.cost;
+    var totalDelivery;
+    if (totalCost > 0) { 
+      if (totalCost < 500) {
+        return 499;
+      }
+      if (totalCost < 800) {
+        return 399;
+      }
+      if (totalCost < 1200) {
+        return 299;
+      } 
+      if (totalCost < 1500) {
+        return 199;
+      }
+      if (totalCost < 1800) {
+        return 99;
+      }
+    }
+    return 0;
+  }
+
   addProduct(product) {
-    console.log('add');
     // проверяем, есть ли уже продукт в корзине
     const existingProductIndex = this.products.findIndex(p => p.id === product.id);
 
@@ -44,7 +67,7 @@ class Cart {
   get cost() {
     // считаем общую стоимость всех продуктов в корзине
     const totalCost = this.products.reduce((acc, product) => {
-      const productCost = toNum(product.price) * product.quantity;
+      const productCost = parseInt(product.price.substring(1)) * product.quantity;
       return acc + productCost;
     }, 0);
 
